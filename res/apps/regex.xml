@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app version="1" id="regex" category="develop" summary="Try a regular expression on sample text" title="Regex Lab" sprite="regex" tint="#c74aa6" width="300" height="220" min-width="210" min-height="170">
+  <state>
+    <signal name="pattern" value="\b(\w)(\w*)\b"/>
+    <signal name="flags" value="g"/>
+    <signal name="sample" value="Pea OS paints every pixel by hand.&#10;Peas grow in pods; pods grow on vines."/>
+    <signal name="replacement" value="$2$1ay"/>
+    <signal name="result" value=""/>
+    <signal name="match" value=""/>
+    <signal name="status" value=""/>
+  </state>
+  <view>
+    <column padding="4" gap="3">
+      <row gap="2" align="center">
+        <label text="/" color="dim"/>
+        <field value="{pattern}" placeholder="pattern" maxlength="2000" grow="1" label="Pattern"/>
+        <label text="/" color="dim"/>
+        <field value="{flags}" placeholder="flags" maxlength="8" width="34" label="Flags: d g i m s u v y"/>
+      </row>
+      <split direction="horizontal" ratio="0.55" min="60" grow="1">
+        <textarea id="sample" value="{sample}" maxlength="20000" label="Sample text"/>
+        <list id="matches" value="{match}" action="show-match" empty="No matches" label="Matches"/>
+      </split>
+      <field value="{replacement}" placeholder="Replace with: $1, $&lt;name&gt;, $&amp;" maxlength="2000" label="Replacement"/>
+      <textarea value="{result}" readonly="true" height="34" label="Text after replacing"/>
+      <label text="{status}" color="dim"/>
+    </column>
+  </view>
+</app>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app version="1" id="about" category="system" summary="What Pea OS is" title="About" sprite="pea-16" tint="#fbf7ea" width="172" height="178">
+  <view>
+    <column padding="8" gap="5" align="center">
+      <image sprite="pea-32" effect="bob"/>
+      <label text="Pea OS" scale="2" color="accent" shadow="label-edge"/>
+      <label text="release {os.release}" color="dim"/>
+      <label wrap="true" align="center">
+        A small, colorful pixel OS for phones, tablets and browsers.
+        One codebase, painted pixel by pixel.
+      </label>
+      <spacer/>
+      <label text="{os.screen}" color="dim"/>
+      <button text="Sweet ♥" action="close" kind="accent"/>
+    </column>
+  </view>
+</app>

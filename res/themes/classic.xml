@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A salute to 1986: square corners, pinstripe titles, a dithered desk, four colors in all. -->
+<theme version="1" id="classic" name="Classic 1986" wallpaper="dither" radius="0" title="stripes"
+       palette="#000000 #ffffff #887ecb #50459b">
+  <color role="ink" value="#000000"/>
+  <color role="paper" value="#ffffff"/>
+  <color role="panel" value="#ffffff"/>
+  <color role="accent" value="#50459b"/>
+  <color role="accent-ink" value="#ffffff"/>
+  <color role="title" value="#ffffff"/>
+  <color role="dim" value="#50459b"/>
+  <color role="shadow" value="#000000"/>
+  <color role="wall-a" value="#887ecb"/>
+  <color role="wall-b" value="#50459b"/>
+</theme>

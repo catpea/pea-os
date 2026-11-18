@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  The authoritative map of Pea OS: where it starts, what it is made of and
+  what it installs. `pos check` fails when this drifts from the file tree.
+-->
+<application version="1" id="pea-os" name="Pea OS" short="pos" release="0.5.0">
+  <entries>
+    <entry platform="browser" src="web/index.html" summary="Hosts the canvas and loads pixi.js, then src/platform/browser.js"/>
+    <entry platform="nativescript" src="src/platform/nativescript.js" summary="Android and iOS through @nativescript/canvas-pixi"/>
+    <entry platform="cli" src="bin/pos.mjs" summary="Developer tool: serve, check, list, shot, settings, and a terminal menu"/>
+  </entries>
+
+  <components>
+    <component id="core.reactive" src="src/core/reactive.js" summary="Signal, combineLatest, batch, EventEmitter, DisposableScope, SignalBinder, persist"/>
+    <component id="core.xml" src="src/core/xml.js" summary="Strict XML reader shared by every Pea OS language"/>
+    <component id="core.providers" src="src/core/providers.js" summary="ProviderSet and ProviderRegistry: each service's providers in the user's order, resolved through what each requires"/>
+    <component id="gfx.color" src="src/gfx/color.js" summary="Packed premultiplied colors"/>
+    <component id="gfx.bitmap" src="src/gfx/bitmap.js" summary="Software pixel surface: fills, dithers, gradients, blits"/>
+    <component id="gfx.font" src="src/gfx/font.js" summary="Proportional pixel font from XML glyphs"/>
+    <component id="gfx.sprites" src="src/gfx/sprites.js" summary="XML sprite sheets and procedural sprites, built per theme"/>
+    <component id="gfx.theme" src="src/gfx/theme.js" summary="Color roles, skin switches and palette locking"/>
+    <component id="gfx.skin" src="src/gfx/skin.js" summary="Chrome painters: buttons, fields, window frames"/>
+    <component id="gfx.art" src="src/gfx/art.js" summary="Procedural art: the pea logo, shaded balls, clouds"/>
+    <component id="gfx.animator" src="src/gfx/animator.js" summary="Tweens and easing on the frame clock"/>
+    <component id="gfx.stage" src="src/gfx/stage.js" summary="The Pixi boundary: low-resolution framebuffer, pixel size, input events"/>
+    <component id="ui.widget" src="src/ui/widget.js" summary="Widget base: geometry, zoom, lifetime, repaint on invalidation"/>
+    <component id="ui.layout" src="src/ui/layout.js" summary="row, column, grid, panel, spacer"/>
+    <component id="ui.controls" src="src/ui/controls.js" summary="label, button, check, slider, choice, image, canvas"/>
+    <component id="ui.markup" src="src/ui/markup.js" summary="The XML view language and its bindings"/>
+    <component id="ui.ui" src="src/ui/ui.js" summary="Shared UI context, pointer routing, long press, hover cursor, per-frame flush"/>
+    <component id="ui.graph" src="src/ui/graph.js" summary="Node-and-wire editors: wire curves, pan and zoom about the pointer, graph documents"/>
+    <component id="ui.drag" src="src/ui/drag.js" summary="Drag and drop between widgets: payloads, a ghost that follows the pointer, drop targets"/>
+    <component id="os.manifest" src="src/os/manifest.js" summary="Reads and validates this manifest"/>
+    <component id="os.model" src="src/os/model.js" summary="Observable desktop state: windows, tiles, tools, virtual desktops, pan, layout snapshots"/>
+    <component id="os.settings" src="src/os/settings.js" summary="Reads and writes settings.xml"/>
+    <component id="os.app" src="src/os/app.js" summary="App definitions, tool windows, documents and running app instances"/>
+    <component id="os.window" src="src/os/window.js" summary="Window chrome, caption boxes, dragging and resizing"/>
+    <component id="os.menu" src="src/os/menu.js" summary="Menu bar and popup menus"/>
+    <component id="os.taskbar" src="src/os/taskbar.js" summary="Taskbar: launcher, window buttons, desktops, pan mode"/>
+    <component id="os.keyboard" src="src/os/keyboard.js" summary="On-screen keyboard"/>
+    <component id="os.wallpaper" src="src/os/wallpaper.js" summary="Animated themed backdrops, five of them screen-saver scenes"/>
+    <component id="os.splash" src="src/os/splash.js" summary="Boot animation"/>
+    <component id="os.desktop" src="src/os/desktop.js" summary="The shell: icons, windows, snapping, magnets, panning, menus, from desktop.xml"/>
+    <component id="os.software" src="src/os/software.js" summary="Which apps are installed: remove hides, install shows, an app that needs a missing service is not there"/>
+    <component id="os.providers" src="src/os/providers.js" summary="The services and their contracts, built-in providers and catalog placeholders"/>
+    <component id="os.files" src="src/os/files.js" summary="File names and types, and the built-in memory and preferences files providers"/>
+    <component id="os.schedule" src="src/os/schedule.js" summary="The schedule service's built-in provider: work that runs while Pea OS is open"/>
+    <component id="os.video-project" src="src/os/video-project.js" summary="The video project language: sources, clips, a video track and an audio track"/>
+    <component id="ai.protocol" src="src/ai/protocol.js" summary="The Pea agent protocol, after A2A: agent cards, messages with parts, tasks and their states"/>
+    <component id="ai.openai" src="src/ai/openai.js" summary="The common /v1 chat protocol: endpoints, headers, streamed replies, error hints"/>
+    <component id="ai.gofai" src="src/ai/gofai.js" summary="Pea Mind: rule-based poems, story shapes, songs, novel plans, family ideas and agent roles"/>
+    <component id="ai.form" src="src/ai/form.js" summary="Fill-in prompts with {{names}}, answer forms, strong answer formats and a tolerant reader for JSON or lines"/>
+    <component id="ai.router" src="src/ai/router.js" summary="The model router: Pea Mind, a /v1 server, WebLLM and on-device models behind one call"/>
+    <component id="ai.flow" src="src/ai/flow.js" summary="Agent flows: node types as agent cards, templates, and the runner that passes messages"/>
+    <component id="os.kernel" src="src/os/kernel.js" summary="Boot, system signals, commands, magnification, persistence"/>
+    <component id="platform.browser" src="src/platform/browser.js" summary="Browser platform adapter"/>
+    <component id="platform.served" src="src/platform/served.js" summary="The Pea server, disk files, ffmpeg and relay providers for a page served by pos serve"/>
+    <component id="platform.network" src="src/platform/network.js" summary="Internet providers over fetch: direct from a page, and a native app's own"/>
+    <component id="platform.files" src="src/platform/files.js" summary="Browser-storage files provider on IndexedDB"/>
+    <component id="platform.nativescript-media" src="src/platform/nativescript-media.js" summary="Phone storage, the document picker, and Android's media player in a foreground media service"/>
+    <component id="platform.audio" src="src/platform/audio.js" summary="Browser audio provider: the media element and Media Session, Web Audio only off phones"/>
+    <component id="cli.commands" src="cli/commands.xml" summary="Command definitions for the pos tool"/>
+    <component id="cli.main" src="cli/main.mjs" summary="Argument parsing, help and dispatch"/>
+    <component id="cli.project" src="cli/project.mjs" summary="Project root, manifest loading, file walking"/>
+    <component id="cli.serve" src="cli/serve.mjs" summary="Development server with identity probe and stable document-storage origin"/>
+    <component id="cli.check" src="cli/check.mjs" summary="Whole-project validation"/>
+    <component id="cli.headless" src="cli/headless.mjs" summary="Software compositor and headless platform"/>
+    <component id="cli.png" src="cli/png.mjs" summary="PNG encoder"/>
+    <component id="cli.relay" src="cli/relay.mjs" summary="Same-origin, loopback-only network relay for app requests"/>
+    <component id="cli.files" src="cli/files.mjs" summary="The disk files store of pos serve, with ranges for players"/>
+    <component id="cli.media" src="cli/media.mjs" summary="Runs the host's ffmpeg: probes, preview frames, loudness peaks and project renders"/>
+    <component id="cli.tui" src="cli/tui.mjs" summary="Terminal menu"/>
+    <component id="ui.fields" src="src/ui/fields.js" summary="Text fields, selections, scrolling, lists, tabs, split panes"/>
+    <component id="os.documents" src="src/os/documents.js" summary="Named documents and recovery drafts, kept as XML files by the files service"/>
+    <component id="os.document-controller" src="src/os/document-controller.js" summary="New, Open, Save, Save As, recovery and bounded undo history"/>
+    <component id="os.dialogs" src="src/os/dialogs.js" summary="Responsive modal prompts, choices and confirmations"/>
+    <component id="os.launcher" src="src/os/launcher.js" summary="Searchable Start menu, favorites and recent documents"/>
+    <component id="os.minimap" src="src/os/minimap.js" summary="Desktop world overview and direct camera navigation"/>
+    <component id="os.overview" src="src/os/overview.js" summary="Window and desktop switcher"/>
+    <component id="os.sticky-notes" src="src/os/sticky-notes.js" summary="Persistent desktop notes, archive, import and export"/>
+    <component id="platform.text-input" src="src/platform/text-input.js" summary="Native browser text selection, clipboard and composition"/>
+    <component id="vendor.pixi" src="web/vendor/pixi.min.js" summary="Existing pinned Pixi 8.5.2 distribution, bundled for offline use"/>
+    <component id="ui.lists" src="src/ui/lists.js" summary="Selectable and searchable scrolling lists and dropdown controls"/>
+    <component id="ui.containers" src="src/ui/containers.js" summary="Clipped scroll views, split panes and wrapping tab headers"/>
+    <component id="fit.hero-doll" src="src/fit/hero-doll.js" summary="Procedural pixel hero: looks, unlock levels and thirteen workout poses as whole-pixel rectangles"/>
+    <component id="fit.interval-timer" src="src/fit/interval-timer.js" summary="Monotonic warmup, work, rest and cooldown timer with exported state"/>
+    <component id="fit.exercises" src="src/fit/exercises.js" summary="Exact workout thirds: curl, overhead press, lateral raise"/>
+  </components>
+
+  <resources>
+    <font id="pea" src="res/fonts/pea.xml"/>
+    <sprites id="icons" src="res/sprites/icons.xml"/>
+    <sprites id="game" src="res/sprites/game.xml"/>
+    <sprites id="cards" src="res/sprites/cards.xml"/>
+    <sprites id="glyphs" src="res/sprites/glyphs.xml"/>
+    <theme id="garden" src="res/themes/garden.xml"/>
+    <theme id="arcade" src="res/themes/arcade.xml"/>
+    <theme id="night" src="res/themes/night.xml"/>
+    <theme id="classic" src="res/themes/classic.xml"/>
+    <theme id="pocket" src="res/themes/pocket.xml"/>
+    <theme id="reef" src="res/themes/reef.xml"/>
+    <theme id="warp" src="res/themes/warp.xml"/>
+    <theme id="rain" src="res/themes/rain.xml"/>
+    <theme id="fireworks" src="res/themes/fireworks.xml"/>
+    <theme id="squadron" src="res/themes/squadron.xml"/>
+    <desktop id="desktop" src="res/desktop.xml"/>
+    <app id="paint" src="res/apps/paint.xml" script="res/apps/paint.js"/>
+    <app id="cards" src="res/apps/cards.xml" script="res/apps/cards.js"/>
+    <data id="welcome-stack" src="res/stacks/welcome.xml"/>
+    <app id="catch" src="res/apps/catch.xml" script="res/apps/catch.js"/>
+    <app id="pea-timer" src="res/apps/pea-timer.xml" script="res/apps/pea-timer.js"/>
+    <app id="calc" src="res/apps/calc.xml" script="res/apps/calc.js"/>
+    <app id="settings" src="res/apps/settings.xml"/>
+    <app id="about" src="res/apps/about.xml"/>
+    <app id="notepad" src="res/apps/notepad.xml" script="res/apps/notepad.js"/>
+    <app id="documents" src="res/apps/documents.xml" script="res/apps/documents.js"/>
+    <app id="notes" src="res/apps/notes.xml" script="res/apps/notes.js"/>
+    <app id="records" src="res/apps/records.xml" script="res/apps/records.js"/>
+    <data id="records-sample" src="res/data/seeds.xml"/>
+    <app id="feeds" src="res/apps/feeds.xml" script="res/apps/feeds.js"/>
+    <data id="pea-news" src="res/data/pea-news.xml"/>
+    <app id="flow" src="res/apps/flow.xml" script="res/apps/flow.js"/>
+    <app id="chat" src="res/apps/chat.xml" script="res/apps/chat.js"/>
+    <app id="agents" src="res/apps/agents.xml" script="res/apps/agents.js"/>
+    <data id="agent-flows" src="res/data/agent-flows.xml"/>
+    <app id="software" src="res/apps/software.xml" script="res/apps/software.js"/>
+    <data id="software" src="res/data/software.xml"/>
+    <app id="regex" src="res/apps/regex.xml" script="res/apps/regex.js"/>
+    <app id="json" src="res/apps/json.xml" script="res/apps/json.js"/>
+    <app id="diff" src="res/apps/diff.xml" script="res/apps/diff.js"/>
+    <app id="http" src="res/apps/http.xml" script="res/apps/http.js"/>
+    <app id="codec" src="res/apps/codec.xml" script="res/apps/codec.js"/>
+    <app id="music" src="res/apps/music.xml" script="res/apps/music.js"/>
+    <app id="video" src="res/apps/video.xml" script="res/apps/video.js"/>
+  </resources>
+
+  <documents>
+    <document src="README.md" summary="What Pea OS is and how to run it"/>
+    <document src="ARCHITECTURE.md" summary="Contracts, layers and the XML languages"/>
+    <document src="TODO.xml" summary="Status and what comes next"/>
+    <document src="RELEASE-NOTES.md" summary="Version 0.5 changes, verification and upgrade instructions"/>
+    <document src="package.json" summary="Task entry points; no dependencies"/>
+    <document src="web/vendor/PIXI-LICENSE.txt" summary="License for the bundled Pixi renderer"/>
+  </documents>
+</application>

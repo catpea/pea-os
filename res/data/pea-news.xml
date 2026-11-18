@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A feed that ships with Pea OS, so Pea Feeds has something to read offline. -->
+<rss version="2.0">
+  <channel>
+    <title>Pea OS News</title>
+    <link>https://example.com/pea-os</link>
+    <description>What is new on the pea-green desk.</description>
+    <item>
+      <title>Meet Pea Flow: objects that travel</title>
+      <guid>pea-news-flow</guid>
+      <pubDate>Fri, 13 Nov 2026 21:00:00 GMT</pubDate>
+      <description><![CDATA[<p>Pea Flow is a little visual language. Put nodes on the board, drag a wire from an output port to an input port, and press <b>Run</b>.</p><p>Every value is a small object you can watch travel along its wire: numbers are blue, text is yellow, yes/no is green or red, and a plain pulse is white.</p><p>Start with the example: a clock ticks into a counter, the counter is checked, and lamps light up.</p>]]></description>
+    </item>
+    <item>
+      <title>Pea Records keeps a card file</title>
+      <guid>pea-news-records</guid>
+      <pubDate>Fri, 13 Nov 2026 16:30:00 GMT</pubDate>
+      <description><![CDATA[<p>Pea Records is a small database. Define fields, then browse one record at a time: the book in the status area turns back with its upper page and forward with its lower page, and the rail under it jumps anywhere.</p><p>List shows the found set as a table (tap a heading to sort). Find narrows it: type &gt;30 into a number, 2026-04-01..2026-04-30 into a date, or part of a word.</p>]]></description>
+    </item>
+    <item>
+      <title>Feeds, from anywhere</title>
+      <guid>pea-news-feeds</guid>
+      <pubDate>Fri, 13 Nov 2026 11:00:00 GMT</pubDate>
+      <description><![CDATA[<p>Pea Feeds reads RSS and Atom. Press <b>Add feed…</b> and paste an address; a web page that announces its feed works too. Subscriptions import and export as OPML.</p><p>Requests travel through the Pea OS server on this computer, which is why feeds that a browser page could not read still work.</p>]]></description>
+    </item>
+    <item>
+      <title>Agent Chat talks to any v1 server</title>
+      <guid>pea-news-chat</guid>
+      <pubDate>Thu, 12 Nov 2026 18:15:00 GMT</pubDate>
+      <description><![CDATA[<p>Agent Chat speaks the common <code>/v1/chat/completions</code> protocol, so it works with a model running on this computer (Ollama, llama.cpp, LM Studio, vLLM) or a hosted service.</p><p>Open <b>Setup</b>, enter the base URL ending in <code>/v1</code>, press <b>Load models</b>, and choose one. With Pea tools on, the agent can open apps and write sticky notes for you.</p>]]></description>
+    </item>
+    <item>
+      <title>Menus learned little pictures</title>
+      <guid>pea-news-menus</guid>
+      <pubDate>Wed, 11 Nov 2026 10:00:00 GMT</pubDate>
+      <description><![CDATA[<p>Menu items now carry small glyphs that stay quiet until you point at them, and show their keyboard shortcuts. The new Window menu acts on the window in front, and Apps are grouped: Create, Organize, Connect, Play, Utilities and System.</p>]]></description>
+    </item>
+    <item>
+      <title>Sticky notes grow up</title>
+      <guid>pea-news-notes</guid>
+      <pubDate>Tue, 10 Nov 2026 14:00:00 GMT</pubDate>
+      <description><![CDATA[<p>Drag a note's corner to resize it. Its header shows its first line, new notes take the next color, and a note can be duplicated or rolled up to its header with a double tap. The Sticky Notes manager shows each note's color and when it was last changed.</p>]]></description>
+    </item>
+  </channel>
+</rss>

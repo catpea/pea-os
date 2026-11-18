@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A screen-saver scene: rockets climb over a harbor and burst in two colors. -->
+<theme version="1" id="fireworks" name="Fireworks" wallpaper="fireworks" radius="3" title="bands">
+  <color role="ink" value="#0a0820"/>
+  <color role="text" value="#fff6e0"/>
+  <color role="paper" value="#1c1840"/>
+  <color role="panel" value="#2e2862"/>
+  <color role="field" value="#110e2a"/>
+  <color role="accent" value="#ffcf3f"/>
+  <color role="accent-ink" value="#0a0820"/>
+  <color role="title" value="#ffcf3f"/>
+  <color role="title-ink" value="#0a0820"/>
+  <color role="bar" value="#0a0820"/>
+  <color role="bar-ink" value="#ffcf3f"/>
+  <color role="dim" value="#a49cd6"/>
+  <color role="shadow" value="#00000070"/>
+  <color role="label" value="#fff6e0"/>
+  <color role="label-edge" value="#0a0820"/>
+  <color role="wall-a" value="#05041a"/>
+  <color role="wall-b" value="#141045"/>
+  <color role="wall-c" value="#2a2370"/>
+  <color role="wall-far" value="#0e1a3a"/>
+  <color role="wall-near" value="#07061a"/>
+  <color role="wall-sun" value="#ffcf3f"/>
+  <color role="wall-cloud" value="#ff5f7e"/>
+  <color role="wall-grid" value="#5fe0ff"/>
+  <color role="wall-star" value="#ffffff"/>
+</theme>

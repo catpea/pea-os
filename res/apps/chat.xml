@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app version="1" id="chat" requires="network" category="connect" summary="Talk to a language model on any /v1 server" title="Agent Chat" sprite="chat" tint="#63d2f0" width="320" height="232" min-width="226" min-height="180">
+  <state>
+    <signal name="page" value="chat"/>
+    <signal name="draft" value=""/>
+    <signal name="send-label" value="Send"/>
+    <signal name="busy" type="boolean" value="false"/>
+    <signal name="status" value=""/>
+    <signal name="base-url" value="http://127.0.0.1:11434/v1"/>
+    <signal name="api-key" value=""/>
+    <signal name="model" value=""/>
+    <signal name="tools" type="boolean" value="true"/>
+    <signal name="stream" type="boolean" value="true"/>
+    <signal name="system-prompt" value="You are a friendly helper inside Pea OS, a small pixel-art desktop. Keep answers short and plain."/>
+    <signal name="setup-status" value="Enter the server's base URL, then load its models."/>
+    <signal name="has-messages" type="boolean" value="false"/>
+  </state>
+  <view>
+    <column padding="4" gap="4">
+      <tabs value="{page}" grow="1">
+        <tab name="chat" title="Chat" gap="4">
+          <canvas id="transcript" grow="1" label="Conversation"/>
+          <row gap="3" align="center">
+            <field id="input" value="{draft}" placeholder="Message the agent…" maxlength="8000" grow="1" submit="chat-submit" label="Message"/>
+            <button text="{send-label}" action="chat-send" kind="accent" width="40"/>
+          </row>
+          <row gap="3" align="center" wrap="true">
+            <button text="New chat" action="new-chat" enabled="{has-messages}"/>
+            <button text="To Notepad" action="to-notepad" enabled="{has-messages}"/>
+            <button text="Export" action="export" enabled="{has-messages}"/>
+            <spacer/>
+            <label text="{status}" color="dim"/>
+          </row>
+        </tab>
+        <tab name="setup" title="Setup">
+          <scroll grow="1">
+            <column gap="3" padding="2">
+              <label text="Server: the base URL, ending in /v1" color="dim"/>
+              <field value="{base-url}" placeholder="http://127.0.0.1:11434/v1" maxlength="400" label="Server base URL"/>
+              <label text="API key (leave empty for local servers)" color="dim"/>
+              <field value="{api-key}" secret="true" maxlength="400" label="API key"/>
+              <label text="Model" color="dim"/>
+              <row gap="3" align="center">
+                <field id="modelField" value="{model}" placeholder="model name" maxlength="200" grow="1" label="Model"/>
+                <button id="modelsButton" text="Load models" action="load-models"/>
+              </row>
+              <check text="Let the agent use Pea tools" value="{tools}"/>
+              <check text="Stream replies as they are written" value="{stream}"/>
+              <label text="Instructions for the agent" color="dim"/>
+              <textarea value="{system-prompt}" height="44" maxlength="4000" label="System prompt"/>
+              <label text="{setup-status}" color="dim" wrap="true"/>
+            </column>
+          </scroll>
+        </tab>
+      </tabs>
+    </column>
+  </view>
+</app>

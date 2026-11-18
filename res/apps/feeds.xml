@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app version="1" id="feeds" uses="network schedule" category="connect" summary="Read RSS and Atom feeds" title="Pea Feeds" sprite="feeds" tint="#ff9a3d" width="372" height="236" min-width="250" min-height="170">
+  <state>
+    <signal name="feed" value="*"/>
+    <signal name="item" value=""/>
+    <signal name="headline" value=""/>
+    <signal name="byline" value=""/>
+    <signal name="article" value=""/>
+    <signal name="has-item" type="boolean" value="false"/>
+    <signal name="has-link" type="boolean" value="false"/>
+    <signal name="has-feed" type="boolean" value="false"/>
+    <signal name="busy" type="boolean" value="false"/>
+    <signal name="idle" type="boolean" value="true"/>
+    <signal name="status" value=""/>
+    <signal name="split-a" type="number" value="0.31"/>
+    <signal name="split-b" type="number" value="0.46"/>
+  </state>
+  <view>
+    <column padding="4" gap="4">
+      <row wrap="true" gap="3" align="center">
+        <button text="Add feed…" action="add-feed" kind="accent"/>
+        <button text="Refresh" action="refresh" enabled="{idle}"/>
+        <button text="Mark all read" action="mark-read"/>
+        <spacer/>
+        <button id="more" text="More…" action="more"/>
+      </row>
+      <split direction="horizontal" ratio="{split-a}" min="60" grow="1">
+        <list id="feedList" value="{feed}" label="Feeds"/>
+        <split direction="vertical" ratio="{split-b}" min="30">
+          <list id="itemList" value="{item}" activate="open-link" label="Articles" empty="Nothing here yet"/>
+          <column gap="3" padding="2">
+            <label text="{headline}" bold="true" wrap="true"/>
+            <label text="{byline}" color="dim"/>
+            <textarea id="article" value="{article}" readonly="true" grow="1" label="Article text"/>
+            <row gap="3" align="center" wrap="true">
+              <button text="Open in browser" action="open-link" enabled="{has-link}"/>
+              <button text="Previous" action="item-previous" enabled="{has-item}"/>
+              <button text="Next" action="item-next" enabled="{has-item}"/>
+            </row>
+          </column>
+        </split>
+      </split>
+      <label text="{status}" color="dim" height="10"/>
+    </column>
+  </view>
+</app>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A screen-saver scene: fish cross a sunlit reef and bubbles rise from the sand. -->
+<theme version="1" id="reef" name="Deep Reef" wallpaper="reef" radius="4" title="bands">
+  <color role="ink" value="#062a33"/>
+  <color role="text" value="#e9fbff"/>
+  <color role="paper" value="#0f4b5a"/>
+  <color role="panel" value="#16697a"/>
+  <color role="field" value="#08343f"/>
+  <color role="accent" value="#ffb347"/>
+  <color role="accent-ink" value="#062a33"/>
+  <color role="title" value="#2bb3c0"/>
+  <color role="title-ink" value="#062a33"/>
+  <color role="bar" value="#062a33"/>
+  <color role="bar-ink" value="#8ef0e6"/>
+  <color role="dim" value="#7fc4cc"/>
+  <color role="shadow" value="#00000066"/>
+  <color role="label" value="#e9fbff"/>
+  <color role="label-edge" value="#062a33"/>
+  <color role="wall-a" value="#2aa8c4"/>
+  <color role="wall-b" value="#11617f"/>
+  <color role="wall-c" value="#072a45"/>
+  <color role="wall-far" value="#0b3a4a"/>
+  <color role="wall-near" value="#c9a66b"/>
+  <color role="wall-sun" value="#ffd75e"/>
+  <color role="wall-cloud" value="#ff7a5c"/>
+  <color role="wall-grid" value="#2f9e5a"/>
+  <color role="wall-star" value="#dff9ff"/>
+</theme>

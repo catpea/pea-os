@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app version="1" id="software" category="system" summary="Install and remove apps, and see who provides each service, such as files, sound and the internet" title="Software" sprite="software" tint="#3f7fe0" width="300" height="250" min-width="220" min-height="170">
+  <state>
+    <signal name="page" value="apps"/>
+    <signal name="app-id" value=""/>
+    <signal name="app-title" value=""/>
+    <signal name="app-about" value=""/>
+    <signal name="app-action" value="Remove"/>
+    <signal name="app-can" type="boolean" value="false"/>
+    <signal name="entry" value=""/>
+    <signal name="entry-title" value=""/>
+    <signal name="entry-about" value=""/>
+    <signal name="entry-state" value=""/>
+    <signal name="entry-action" value="Install"/>
+    <signal name="entry-can" type="boolean" value="false"/>
+    <signal name="has-home" type="boolean" value="false"/>
+  </state>
+  <view>
+    <column padding="4" gap="4">
+      <tabs value="{page}" grow="1">
+        <tab name="apps" title="Apps" gap="3">
+          <list id="apps" value="{app-id}" grow="1" label="Apps"/>
+          <label text="{app-title}" bold="true"/>
+          <label text="{app-about}" color="dim" wrap="true"/>
+          <row gap="3" align="center">
+            <button text="{app-action}" action="toggle-app" enabled="{app-can}" kind="accent"/>
+            <button text="Open" action="open-app"/>
+          </row>
+        </tab>
+        <tab name="providers" title="Providers" gap="3">
+          <list id="providers" value="{entry}" grow="1" label="Services, their providers, and what each requires"/>
+          <label text="{entry-title}" bold="true"/>
+          <label text="{entry-state}" wrap="true"/>
+          <scroll height="40">
+            <label text="{entry-about}" color="dim" wrap="true"/>
+          </scroll>
+          <row gap="3" align="center">
+            <button text="{entry-action}" action="toggle-provider" enabled="{entry-can}" kind="accent"/>
+            <button text="Website" action="provider-home" enabled="{has-home}"/>
+            <button text="Check again" action="survey"/>
+          </row>
+        </tab>
+      </tabs>
+    </column>
+  </view>
+</app>

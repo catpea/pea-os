@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A screen-saver scene: rain on a city at night, where lights go on and off. -->
+<theme version="1" id="rain" name="Rain City" wallpaper="rain" radius="2" title="stripes">
+  <color role="ink" value="#0d1117"/>
+  <color role="text" value="#e8ecf2"/>
+  <color role="paper" value="#252c38"/>
+  <color role="panel" value="#343e4f"/>
+  <color role="field" value="#161b24"/>
+  <color role="accent" value="#ffb000"/>
+  <color role="accent-ink" value="#0d1117"/>
+  <color role="title" value="#343e4f"/>
+  <color role="title-ink" value="#ffb000"/>
+  <color role="bar" value="#0d1117"/>
+  <color role="bar-ink" value="#ffb000"/>
+  <color role="dim" value="#8b97aa"/>
+  <color role="shadow" value="#00000070"/>
+  <color role="label" value="#e8ecf2"/>
+  <color role="label-edge" value="#0d1117"/>
+  <color role="wall-a" value="#0b1020"/>
+  <color role="wall-b" value="#1f2a44"/>
+  <color role="wall-c" value="#3a4560"/>
+  <color role="wall-far" value="#161d2e"/>
+  <color role="wall-near" value="#0d1220"/>
+  <color role="wall-sun" value="#ffcf6b"/>
+  <color role="wall-star" value="#9fb4d8"/>
+</theme>

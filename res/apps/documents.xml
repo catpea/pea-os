@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app version="1" id="documents" category="organize" summary="Everything you have saved" title="Documents" sprite="documents" tint="#ffd75e" width="340" height="205" min-width="270" min-height="155">
+  <state>
+    <signal name="selected" value=""/>
+    <signal name="list-open" type="boolean" value="true"/>
+    <signal name="preview-open" type="boolean" value="true"/>
+    <signal name="preview-label" value="Preview"/>
+    <signal name="search" value=""/>
+    <signal name="kind" value="all"/>
+    <signal name="has-selection" type="boolean" value="false"/>
+    <signal name="selected-name" value="Your documents"/>
+    <signal name="details" value=""/>
+    <signal name="preview-text" value="Choose a saved document."/>
+    <signal name="status" value="Opening documents…"/>
+  </state>
+  <view>
+    <scroll>
+    <column id="body" padding="4" gap="4">
+      <row wrap="true" gap="4" align="center">
+        <field value="{search}" placeholder="Search documents" grow="1" label="Search documents"/>
+        <select value="{kind}" width="78">
+          <option value="all" text="All types"/>
+          <option value="notepad" text="Text"/>
+          <option value="paint" text="Paintings"/>
+          <option value="cards" text="Card stacks"/>
+          <option value="records" text="Databases"/>
+          <option value="flow" text="Flows"/>
+        </select>
+        <button text="New" action="new-document"/>
+      </row>
+      <split id="browser" direction="horizontal" ratio="0.46" grow="1">
+        <list id="fileList" visible="{list-open}" value="{selected}" action="preview-document" activate="open-document" grow="1" label="Saved documents"/>
+        <column id="previewPane" visible="{preview-open}" padding="5" gap="5">
+          <label text="{selected-name}" bold="true"/>
+          <label text="{details}" color="dim" wrap="true"/>
+          <canvas id="preview" grow="1"/>
+          <textarea id="previewText" value="{preview-text}" readonly="true" grow="1" label="Document preview"/>
+        </column>
+      </split>
+      <row wrap="true" gap="3" align="center">
+        <button text="Open" action="open-document" enabled="{has-selection}" kind="accent"/>
+        <button text="Rename" action="rename-document" enabled="{has-selection}"/>
+        <button text="Export" action="export-document" enabled="{has-selection}"/>
+        <button text="{preview-label}" action="toggle-preview"/>
+        <spacer/>
+        <button text="Delete" action="delete-document" enabled="{has-selection}"/>
+      </row>
+      <label text="{status}" color="dim" height="10"/>
+    </column>
+    </scroll>
+  </view>
+</app>

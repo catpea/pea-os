@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  App icons, 16x16. Each character is a palette key; "." is transparent.
+  The keys below are PEA-16, the Pea OS master palette.
+-->
+<sprites version="1">
+  <color key="k" value="#16161d"/>
+  <color key="v" value="#3a3550"/>
+  <color key="d" value="#6b6a86"/>
+  <color key="e" value="#a9aec4"/>
+  <color key="w" value="#fbf7ea"/>
+  <color key="y" value="#ffd75e"/>
+  <color key="o" value="#ff9a3d"/>
+  <color key="r" value="#e8475a"/>
+  <color key="m" value="#c74aa6"/>
+  <color key="p" value="#6d3fa8"/>
+  <color key="n" value="#2b3a8c"/>
+  <color key="b" value="#3f7fe0"/>
+  <color key="c" value="#63d2f0"/>
+  <color key="t" value="#1f8a78"/>
+  <color key="g" value="#46b04a"/>
+  <color key="l" value="#b5e35a"/>
+  <color key="G" value="#1d4d2b"/>
+  <color key="B" value="#8a5a3c"/>
+
+  <sprite id="settings">
+    ................
+    ................
+    ....kkkkk.......
+    wwwwkyyykwwwwwww
+    ....kkkkk.......
+    ................
+    .........kkkkk..
+    wwwwwwwwwkccckww
+    .........kkkkk..
+    ................
+    ..kkkkk.........
+    wwkrrrkwwwwwwwww
+    ..kkkkk.........
+    ................
+    ................
+    ................
+  </sprite>
+
+  <sprite id="calc">
+    .kkkkkkkkkkkkkk.
+    .kddddddddddddk.
+    .kdGGGGGGGGGGdk.
+    .kdGGGGGlGllGdk.
+    .kdGGGGGGGGGGdk.
+    .kddddddddddddk.
+    .kdwwdwwdwwdook.
+    .kdwwdwwdwwdook.
+    .kddddddddddddk.
+    .kdwwdwwdwwdook.
+    .kdwwdwwdwwdook.
+    .kddddddddddddk.
+    .kdwwdwwdwwdrrk.
+    .kdwwdwwdwwdrrk.
+    .kddddddddddddk.
+    .kkkkkkkkkkkkkk.
+  </sprite>
+
+  <sprite id="paint">
+    ............kkk.
+    ...........kBBk.
+    ..........kBBk..
+    .........kBBk...
+    ........kBBk....
+    .......keek.....
+    ......keek......
+    .....krrk.......
+    ....krrrk.......
+    ...krrrk........
+    ...krrk.........
+    ..krk...........
+    ..kk............
+    ................
+    .yy..bb..gg..mm.
+    .yy..bb..gg..mm.
+  </sprite>
+
+  <sprite id="pea-timer">
+    ......kkkk......
+    ......kook......
+    .......kk.......
+    ....kkkkkkkk....
+    ...kwwwwwwwwk...
+    ..kwwwwwkwwwwk..
+    .kwwwwwwkwwwwwk.
+    .kwwwwwwkwwwwwk.
+    .kwwwwwwrkkwwek.
+    .kwwwwwwwwwwwek.
+    .kwwwwwwwwwweek.
+    ..kwwwwwwwweek..
+    ...keeeeeeeek...
+    ....kkkkkkkk....
+    ................
+    ................
+  </sprite>
+
+  <sprite id="game">
+    ................
+    ......kkkk......
+    .....krrrrk.....
+    .....krwrrk.....
+    .....krrrrk.....
+    ......kkkk......
+    .......ee.......
+    .......ee.......
+    .......ee.......
+    ..kkkkkeekkkkk..
+    .kddddddddddddk.
+    .kdyyddddddccdk.
+    .kdyyddddddccdk.
+    .kddddddddddddk.
+    ..kkkkkkkkkkkk..
+    ................
+  </sprite>
+
+  <sprite id="notepad">
+    ..kkkkkkkkkk....
+    ..kwwwwwwwwkk...
+    ..kwbwwwwwwkwk..
+    ..kwwwwwwwwkkk..
+    ..kwddddddwwwk..
+    ..kwwwwwwwwwkk..
+    ..kwddddddwkBk..
+    ..kwwwwwwwkBBk..
+    ..kwdddddkBBk...
+    ..kwwwwwkBBkk...
+    ..kwdddkBBkwk...
+    ..kwwwkeewwwwk..
+    ..kwkkekwwwwk...
+    ..kwkkwwwwwwk...
+    ..kkkkkkkkkkk...
+    ................
+  </sprite>
+
+  <sprite id="notes">
+    ................
+    .kkkkkkkkkk.....
+    .kyyyyyyyyk.....
+    .kyyyyyyyyk.....
+    .kyoooooyyk.....
+    .kyyyyyyyyk.....
+    .kyooooyyyk.....
+    .kyyyyyyyyk.....
+    .kyyyykkkkkkkkk.
+    .kyyyyklllllllk.
+    .kkkkkklllllllk.
+    ......klggggllk.
+    ......klllllllk.
+    ......klggglllk.
+    ......klllllllk.
+    ......kkkkkkkkk.
+  </sprite>
+
+  <sprite id="documents">
+    ................
+    ..kkkkkk........
+    .kyyyyyykkk.....
+    .kyyyyyyyyykkkk.
+    .kyyyyyyyyyyyyk.
+    .kkkkkkkkkkkkkk.
+    .kwwwwwwwwwwwkk.
+    .kwdddddddwwwkk.
+    .kwwwwwwwwwwwkk.
+    .kwdddddddwwwkk.
+    .kwwwwwwwwwwwkk.
+    .kwdddddddwwwkk.
+    .kwwwwwwwwwwwkk.
+    .kkkkkkkkkkkkkk.
+    ................
+    ................
+  </sprite>
+  <sprite id="records">
+    ................
+    ....kkkkkkkk....
+    ....krrrwwwk....
+    ..kkkkkkkkkkkk..
+    ..kdddddwwwwwk..
+    ..keeewwwwwwwk..
+    kkkkkkkkkkkkkkkk
+    kwwwwwwwwwwwwwwk
+    kcccccccccccccck
+    kccccckkkkccccck
+    kccccckyykccccck
+    kccccckkkkccccck
+    kcccccccccccccck
+    kbbbbbbbbbbbbbbk
+    kkkkkkkkkkkkkkkk
+    ................
+  </sprite>
+
+  <sprite id="feeds">
+    .kkkkkkkkkkkkkk.
+    kkooooooooooookk
+    koyyyyyyyyyyyook
+    koywwwwwoooooook
+    koyooowwwooooook
+    koyooooowwwooook
+    koywwoooowwooook
+    koywwwwooowwoook
+    kooooowwooowwook
+    koooooowwoowwook
+    kooooooowooowook
+    koowwooowwoowook
+    koowwooowwoowook
+    kooooooooooooook
+    kkooooooooooookk
+    .kkkkkkkkkkkkkk.
+  </sprite>
+
+  <sprite id="flow">
+    ................
+    kkkkk......kkkkk
+    kwbbk......kwggk
+    kbbbkvvvvvvkgggk
+    kbbbk.....vkgggk
+    kkkkk.....vkkkkk
+    .........yyy....
+    .........ywy....
+    .........yyy....
+    kkkkk.....vkkkkk
+    kwmmk.....vkwook
+    kmmmkvvvvvvkoook
+    kmmmk......koook
+    kkkkk......kkkkk
+    ................
+    ................
+  </sprite>
+
+  <sprite id="chat">
+    .kkkkkkkkkkk....
+    kccccccccccck...
+    kcwwwwwwwwcck...
+    kccccccccccck...
+    kccnccnccncck...
+    kccccccccccck...
+    .kkkckkkkkkk....
+    ..kck...........
+    ..kk.kkkkkkkkkk.
+    ....kyyyyyyyyyyk
+    ....kyyBBBBByyyk
+    ....kyyyyyyyyyyk
+    ....kyyBBByyyyyk
+    .....kkkkkkykkk.
+    ...........kyk..
+    ............kk..
+  </sprite>
+
+  <sprite id="agents">
+    ................
+    .kkkk......kkkk.
+    kppppk....kggggk
+    kpwpwk....kgwgwk
+    kppppk....kggggk
+    .kkkk......kkkk.
+    ..kv........vk..
+    ...v........v...
+    ...vvvvvvvvvv...
+    ........v.......
+    ....kkkkkkkk....
+    ....kkwwwwkk....
+    ....kwkwwkwk....
+    ....kwwkkwwk....
+    ....kwwwwwwk....
+    ....kkkkkkkk....
+  </sprite>
+
+  <sprite id="software">
+    ......kkkk......
+    ......kbbk......
+    ......kbbk......
+    ......kbbk......
+    ...kkkkbbkkkk...
+    ....kbbbbbbk....
+    .....kbbbbk.....
+    ......kbbk......
+    .......kk.......
+    .kkkkkkkkkkkkkk.
+    .kyyyyyyyyyyyyk.
+    .kkkkkkkkkkkkkk.
+    ..koooowwooook..
+    ..kooooooooook..
+    ..kooooooooook..
+    ..kkkkkkkkkkkk..
+  </sprite>
+
+  <sprite id="regex">
+    ................
+    .kkkkkkkkkkkkkk.
+    kmmmmmmmmmmmmmmk
+    kmmmmmmmmmmmmmmk
+    kmmmmmmmmmwmmmmk
+    kmmmmmmwmmwmmwmk
+    kmmmmmmmwwwwwmmk
+    kmmmmmmmmwwwmmmk
+    kmmmmmmmwmmmwmmk
+    kmmmmmmmmmmmmmmk
+    kmmwwwmmmmmmmmmk
+    kmmwwwmmmmmmmmmk
+    kmmwwwmmmmmmmmmk
+    kppppppppppppppk
+    .kkkkkkkkkkkkkk.
+    ................
+  </sprite>
+
+  <sprite id="json">
+    ................
+    .kkkkkkkkkkkkkk.
+    kyyyyyyyyyyyyyyk
+    kyyyykkyyykkyyyk
+    kyyykyyyyyyykyyk
+    kyyykyyyyyyykyyk
+    kyyykyyyyyyykyyk
+    kyykyykyykyyykyk
+    kyyykyyyyyyykyyk
+    kyyykyyyyyyykyyk
+    kyyykyyyyyyykyyk
+    kyyyykkyyykkyyyk
+    kyyyyyyyyyyyyyyk
+    kooooooooooooook
+    .kkkkkkkkkkkkkk.
+    ................
+  </sprite>
+
+  <sprite id="diff">
+    ................
+    .kkkkkkkkkkkkkk.
+    .kwwwwwwwwwwwwk.
+    .kweeeeeeeeewwk.
+    .kwwwwwwwwwwwwk.
+    .krrrrrrrrrrrrk.
+    .krrwwwwrrrrrrk.
+    .krrrrrrrrrrrrk.
+    .kggggggggggggk.
+    .kgggwggggggggk.
+    .kggwwwgggggggk.
+    .kgggwggggggggk.
+    .kggggggggggggk.
+    .kweeeeeeewwwwk.
+    .kkkkkkkkkkkkkk.
+    ................
+  </sprite>
+
+  <sprite id="http">
+    ................
+    .....kkkkkk.....
+    ...kkbbcbbbkk...
+    ..kbbcbbbbcbbk..
+    ..kbcbbbbbbcbk..
+    .kcccccccccccck.
+    .kbcbbbbbbbbcbk.
+    .kbcbbbbbbbbcbk.
+    .kbcbbbbbbbbcbk.
+    .kcccccccccccck.
+    ..kbcbbbbbbcbk..
+    ..kbbcbbbbcbbk..
+    ...kkbbcbbbkk...
+    .....kkkkkk.....
+    ................
+    ................
+  </sprite>
+
+  <sprite id="codec">
+    ................
+    .kkkkkkkkkkkkkk.
+    kooooooooooooook
+    koowwwoooowwoook
+    koowowooooowoook
+    koowowooooowoook
+    koowwwoooowwwook
+    kooooooooooooook
+    kooooookkooooook
+    koooookkkkoooook
+    kooooooooooooook
+    kookkkookooooook
+    kookokookkkooook
+    kookkkookokooook
+    kookokookkkooook
+    .kkkkkkkkkkkkkk.
+  </sprite>
+  <sprite id="music">
+    ................
+    .........kkkkkkk
+    ....kk...kpppppk
+    ....kyk..kppkppk
+    ....kyyk.kpkekpk
+    ....ky.k.kppkppk
+    ....ky...kpppppk
+    ....ky...kpkkkpk
+    ....ky...kkeeekk
+    .kkkky...kkewekk
+    kyyyyk...kkeeekk
+    kyyyyk...kpkkkpk
+    .kkkk....kpppppk
+    .........kkkkkkk
+    ................
+    ................
+  </sprite>
+
+  <sprite id="video">
+    ................
+    .kkkkkkkkkkkkkk.
+    .kwwkkwwkkwwkkk.
+    .kkkwwkkwwkkwwk.
+    .kkkkkkkkkkkkkk.
+    .kkkkkkkkkkkkkk.
+    .knnnnnnnnnnnnk.
+    .knwwwwwnnnnnnk.
+    .knnnnnnnnnnnnk.
+    .knyyynnnlllnnk.
+    .knnnnnnnnnnnnk.
+    .knwwwnnnnwwwnk.
+    .knnnnnnnnnnnnk.
+    .kkkkkkkkkkkkkk.
+    ................
+    ................
+  </sprite>
+</sprites>

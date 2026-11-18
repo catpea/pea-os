@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app version="1" id="http" requires="network" category="develop" summary="Send a web request and read the answer" title="HTTP Probe" sprite="http" tint="#3f7fe0" width="330" height="236" min-width="230" min-height="180">
+  <state>
+    <signal name="method" value="GET"/>
+    <signal name="url" value="http://127.0.0.1:11434/v1/models"/>
+    <signal name="headers" value="Accept: application/json"/>
+    <signal name="body" value=""/>
+    <signal name="page" value="answer"/>
+    <signal name="answer" value=""/>
+    <signal name="send-label" value="Send"/>
+    <signal name="entry" value=""/>
+    <signal name="status" value="Requests go through Pea's local relay: GET or POST, up to 16 MB."/>
+  </state>
+  <view>
+    <column padding="4" gap="3">
+      <row gap="3" align="center">
+        <select value="{method}" width="44" label="Method">
+          <option value="GET" text="GET"/>
+          <option value="POST" text="POST"/>
+        </select>
+        <field value="{url}" placeholder="https://example.com/api" maxlength="2000" grow="1" submit="send-request" label="Address"/>
+        <button text="{send-label}" action="send-request" kind="accent" width="40"/>
+      </row>
+      <tabs value="{page}" grow="1">
+        <tab name="answer" title="Answer">
+          <textarea value="{answer}" readonly="true" wrap="false" grow="1" label="The answer"/>
+        </tab>
+        <tab name="request" title="Request" gap="3">
+          <label text="Headers, one per line: Name: value" color="dim"/>
+          <textarea value="{headers}" wrap="false" maxlength="8000" height="40" label="Request headers"/>
+          <label text="Body (POST only)" color="dim"/>
+          <textarea value="{body}" wrap="false" maxlength="1000000" grow="1" label="Request body"/>
+        </tab>
+        <tab name="history" title="History">
+          <list id="history" value="{entry}" activate="recall" grow="1" empty="Requests you send are listed here" label="Sent requests"/>
+        </tab>
+      </tabs>
+      <label text="{status}" color="dim"/>
+    </column>
+  </view>
+</app>

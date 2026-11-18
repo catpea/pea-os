@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Pea Cards: a stack of cards, each with a picture, text and buttons that
+  lead to other cards. The card is one <canvas>; cards.js draws it. The row
+  under the card changes with the tool, and the tools float in their own
+  little window.
+-->
+<app version="1" id="cards" category="create" summary="Card stacks with buttons and pictures" title="Pea Cards" sprite="cards" tint="#ffd75e" width="212" height="205" min-width="145" min-height="120">
+  <state>
+    <signal name="tool" value="browse"/>
+    <signal name="place" value="1 / 1"/>
+    <signal name="hint" value=""/>
+    <signal name="go" value="next"/>
+    <signal name="linked" value=""/>
+    <signal name="brush" type="number" value="2"/>
+    <signal name="big" type="boolean" value="false"/>
+    <signal name="part-text" value=""/>
+    <signal name="card-selection" value="1"/>
+    <signal name="file-name" value="Welcome"/>
+    <signal name="file-status" value="Opening…"/>
+    <signal name="can-undo" type="boolean" value="false"/>
+    <signal name="can-redo" type="boolean" value="false"/>
+  </state>
+  <view>
+    <scroll axis="both">
+    <column width="198" padding="2" gap="3">
+      <row gap="3" align="center" height="17">
+        <button text="Save" action="file-save"/>
+        <button text="Open" action="file-open"/>
+        <spacer/>
+        <button text="Undo" action="undo" enabled="{can-undo}"/>
+        <button text="Redo" action="redo" enabled="{can-redo}"/>
+      </row>
+      <panel kind="inset" padding="1" self="center">
+        <canvas id="card" width="192" height="120"/>
+      </panel>
+
+      <row id="browseRow" gap="3" align="center" height="17">
+        <label text="{hint}" color="dim"/>
+        <spacer/>
+      </row>
+
+      <textarea id="partText" value="{part-text}" height="30" placeholder="Text on the selected object"/>
+      <row id="buttonRow" gap="3" align="center" height="17">
+        <label text="Go"/>
+        <choice value="{go}">
+          <option value="none" text="Stay"/>
+          <option value="prev" text="←"/>
+          <option value="next" text="→"/>
+          <option value="first" text="1st"/>
+        </choice>
+        <button text="Link" action="link"/>
+        <label text="{linked}" color="dim"/>
+        <spacer/>
+        <button text="×" action="remove" face="#e8475a"/>
+      </row>
+      <row id="textRow" gap="3" align="center" height="17">
+        <check text="Big letters" value="{big}"/>
+        <spacer/>
+        <label text="{hint}" color="dim"/>
+        <button text="×" action="remove" face="#e8475a"/>
+      </row>
+      <row id="paintRow" gap="3" align="center" height="17">
+        <label text="Brush"/>
+        <choice value="{brush}">
+          <option value="1" text="S"/>
+          <option value="2" text="M"/>
+          <option value="5" text="L"/>
+        </choice>
+        <spacer/>
+        <button text="Clear picture" action="clear"/>
+      </row>
+      <row id="linkRow" gap="3" align="center" height="17">
+        <label text="Pick a card, then"/>
+        <spacer/>
+        <button text="Link here" action="link-here" kind="accent"/>
+        <button text="Cancel" action="link-cancel"/>
+      </row>
+
+      <row gap="3" align="center">
+        <button text="←" action="prev"/>
+        <select id="cardPicker" value="{card-selection}" action="select-card" width="55"/>
+        <button text="→" action="next"/>
+        <spacer/>
+        <button text="New card" action="new" kind="accent"/>
+        <button text="Delete" action="delete-card"/>
+      </row>
+      <label text="{file-status}" color="dim" height="10"/>
+    </column>
+    </scroll>
+  </view>
+
+  <tool id="tools" title="Tools" width="46" height="158">
+    <view>
+      <column padding="2" gap="3">
+        <choice value="{tool}">
+          <option value="browse" sprite="tool-browse"/>
+          <option value="button" sprite="tool-button"/>
+          <option value="text" sprite="tool-text"/>
+          <option value="draw" sprite="tool-draw"/>
+          <option value="erase" sprite="tool-erase"/>
+          <option value="fill" sprite="tool-fill"/>
+        </choice>
+        <canvas id="colors" grow="1"/>
+      </column>
+    </view>
+  </tool>
+</app>

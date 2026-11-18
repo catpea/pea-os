@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app version="1" id="calc" category="utility" summary="Quick sums" title="Calculator" sprite="calc" tint="#ff9a3d" width="136" height="172" min-width="110" min-height="140">
+  <state>
+    <signal name="display" value="0"/>
+  </state>
+  <view>
+    <column padding="5" gap="4">
+      <panel kind="inset" padding="5 6">
+        <label text="{display}" scale="2" color="field-ink" self="end"/>
+      </panel>
+      <grid columns="4" gap="3" grow="1">
+        <button text="C" action="key:C" face="#e8475a"/>
+        <button text="←" action="key:back"/>
+        <button text="%" action="key:%"/>
+        <button text="÷" action="key:÷" face="#ffd75e"/>
+        <button text="7" action="key:7"/>
+        <button text="8" action="key:8"/>
+        <button text="9" action="key:9"/>
+        <button text="×" action="key:×" face="#ffd75e"/>
+        <button text="4" action="key:4"/>
+        <button text="5" action="key:5"/>
+        <button text="6" action="key:6"/>
+        <button text="-" action="key:-" face="#ffd75e"/>
+        <button text="1" action="key:1"/>
+        <button text="2" action="key:2"/>
+        <button text="3" action="key:3"/>
+        <button text="+" action="key:+" face="#ffd75e"/>
+        <button text="+/-" action="key:sign"/>
+        <button text="0" action="key:0"/>
+        <button text="." action="key:."/>
+        <button text="=" action="key:=" kind="accent"/>
+      </grid>
+    </column>
+  </view>
+</app>

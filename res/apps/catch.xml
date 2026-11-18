@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app version="1" id="catch" category="play" summary="Catch the falling peas" title="Pea Catch" sprite="game" tint="#6d3fa8" width="184" height="210" min-width="140" min-height="150">
+  <state>
+    <signal name="score" type="number" value="0"/>
+    <signal name="best" type="number" value="0"/>
+  </state>
+  <view>
+    <column>
+      <row padding="3 6">
+        <label text="Score {score}" bold="true"/>
+        <spacer/>
+        <label text="Best {best}" color="dim"/>
+      </row>
+      <canvas id="field" grow="1"/>
+    </column>
+  </view>
+</app>

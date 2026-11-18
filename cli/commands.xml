@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  The command-line interface of the Pea OS developer tool. Option parsing and
+  the help text are both generated from this document.
+-->
+<cli version="1" name="pos" summary="Pea OS developer tool">
+  <command name="serve" summary="Serve Pea OS to a browser and print its URL">
+    <option name="port" short="p" value="PORT" default="8080" summary="Stable workspace port; an occupied port reports an error"/>
+    <option name="host" value="HOST" default="127.0.0.1" summary="Address to listen on; use 0.0.0.0 to reach it from a phone"/>
+    <option name="data" value="DIR" summary="Folder for files kept on disk (default: ~/.local/share/pea-os)"/>
+  </command>
+  <command name="check" summary="Validate the manifest, every XML resource and every app"/>
+  <command name="list" summary="List what the manifest installs, one tab-separated row each">
+    <argument name="kind" summary="apps, themes, fonts, sprites or components (default: apps)"/>
+  </command>
+  <command name="shot" summary="Render Pea OS without a browser and write a PNG">
+    <option name="output" short="o" value="FILE" summary="Write the PNG to FILE instead of stdout"/>
+    <option name="size" value="WxH" default="320x200" summary="Screen size in art pixels"/>
+    <option name="theme" value="ID" summary="Theme to use"/>
+    <option name="open" value="APPS" summary="Comma-separated app ids to open"/>
+    <option name="frames" value="N" default="60" summary="Frames to run before the shot, at 60 per second"/>
+    <option name="scale" value="N" default="2" summary="Enlarge each art pixel N times in the PNG"/>
+    <option name="tap" value="X,Y" repeat="true" summary="Tap a point, in art pixels, before the shot; repeatable"/>
+    <option name="context" value="X,Y" repeat="true" summary="Right-click a point after the taps, to open its context menu; repeatable"/>
+    <option name="settings" value="FILE" summary="Apply a settings.xml first"/>
+    <option name="boot" flag="true" summary="Start from the boot animation"/>
+  </command>
+  <command name="settings" summary="Validate a settings.xml and print it in canonical form">
+    <argument name="file" summary="The file to read; standard input when omitted or -"/>
+    <option name="defaults" flag="true" summary="Print the default settings instead of reading any"/>
+  </command>
+</cli>

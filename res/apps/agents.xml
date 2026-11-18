@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app version="1" id="agents" uses="thinking" category="connect" summary="Teams of agents that plan, write and check, with or without a language model" title="Agent Flow" sprite="agents" tint="#8a5cd6" width="560" height="330" min-width="300" min-height="200">
+  <state>
+    <signal name="run-label" value="Run"/>
+    <signal name="node-type" value="agent"/>
+    <signal name="has-selection" type="boolean" value="false"/>
+    <signal name="selection-title" value="Nothing selected"/>
+    <signal name="status" value=""/>
+    <signal name="thinker" value=""/>
+    <signal name="split" type="number" value="0.2"/>
+    <signal name="split-down" type="number" value="0.64"/>
+    <signal name="page" value="node"/>
+    <signal name="output" value=""/>
+    <signal name="has-output" type="boolean" value="false"/>
+    <signal name="file-name" value="Untitled"/>
+    <signal name="file-status" value="Opening…"/>
+    <signal name="can-undo" type="boolean" value="false"/>
+    <signal name="can-redo" type="boolean" value="false"/>
+    <signal name="zoom-label" value="100%"/>
+  </state>
+  <view>
+    <column padding="4" gap="4">
+      <row wrap="true" gap="3" align="center">
+        <button text="{run-label}" action="run" kind="accent" width="44"/>
+        <button text="Templates…" action="templates"/>
+        <label text="{thinker}" color="dim"/>
+        <spacer/>
+        <button text="-" action="zoom-out" width="17" label="Zoom out"/>
+        <button text="{zoom-label}" action="zoom-reset" width="36" label="Actual size"/>
+        <button text="+" action="zoom-in" width="17" label="Zoom in"/>
+        <button text="Undo" action="undo" enabled="{can-undo}"/>
+        <button text="Delete" action="delete" enabled="{has-selection}"/>
+      </row>
+      <split direction="horizontal" ratio="{split}" min="54" grow="1">
+        <column gap="3">
+          <list id="palette" value="{node-type}" activate="add-node" drag="agent-node" grow="1" label="Agents and helpers: drag one onto the board"/>
+          <button text="Add node" action="add-node"/>
+        </column>
+        <split direction="vertical" ratio="{split-down}" min="40">
+          <canvas id="board" label="Agent board: drag from an output port to an input port to connect"/>
+          <tabs value="{page}">
+            <tab name="node" title="Node">
+              <scroll grow="1">
+                <column id="inspector" gap="3" padding="2">
+                  <label text="{selection-title}" bold="true"/>
+                </column>
+              </scroll>
+            </tab>
+            <tab name="output" title="Result" gap="3">
+              <textarea value="{output}" readonly="true" grow="1" label="Result"/>
+              <row gap="3" align="center">
+                <button text="To Notepad" action="to-notepad" enabled="{has-output}"/>
+                <button text="Sticky note" action="to-sticky" enabled="{has-output}"/>
+              </row>
+            </tab>
+            <tab name="messages" title="Messages">
+              <list id="messages" grow="1" activate="read-message" empty="Messages between the agents appear here." label="Messages between agents"/>
+            </tab>
+          </tabs>
+        </split>
+      </split>
+      <row gap="4" align="center">
+        <label text="{status}" color="dim" grow="1"/>
+        <label text="{file-status}" color="dim"/>
+      </row>
+    </column>
+  </view>
+</app>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A screen-saver scene: a squadron of winged peas crosses the evening sky. -->
+<theme version="1" id="squadron" name="Pea Squadron" wallpaper="squadron" radius="3" title="stripes">
+  <color role="ink" value="#24163a"/>
+  <color role="text" value="#2a1d40"/>
+  <color role="paper" value="#f7efff"/>
+  <color role="panel" value="#e2d4f7"/>
+  <color role="field" value="#ffffff"/>
+  <color role="accent" value="#46b04a"/>
+  <color role="accent-ink" value="#ffffff"/>
+  <color role="title" value="#c79bf0"/>
+  <color role="title-ink" value="#24163a"/>
+  <color role="bar" value="#f7efff"/>
+  <color role="bar-ink" value="#24163a"/>
+  <color role="dim" value="#7a6a96"/>
+  <color role="shadow" value="#24163a55"/>
+  <color role="label" value="#ffffff"/>
+  <color role="label-edge" value="#24163a"/>
+  <color role="wall-a" value="#3b2a6e"/>
+  <color role="wall-b" value="#8a5fb8"/>
+  <color role="wall-c" value="#f2a6a0"/>
+  <color role="wall-far" value="#5b4a8a"/>
+  <color role="wall-cloud" value="#fbf7ea"/>
+  <color role="wall-star" value="#fff6d8"/>
+</theme>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Pea Cut: a video editor that is a front end to ffmpeg. Import sources, cut
+  clips from them in the monitor, lay the clips on a timeline with a video
+  track (each clip keeps its own sound) and an audio track for music, and
+  render. It needs the media service, so it is installed only where a
+  provider runs ffmpeg: pos serve on a computer that has it.
+-->
+<app version="1" id="video" category="create" requires="media" summary="Cut clips from your videos, arrange them on a timeline with music, and render with ffmpeg" title="Pea Cut" sprite="video" tint="#2b3a8c" width="430" height="300" min-width="330" min-height="240">
+  <state>
+    <signal name="file-name" value="Untitled"/>
+    <signal name="file-status" value=""/>
+    <signal name="status" value=""/>
+    <signal name="has-media" type="boolean" value="false"/>
+    <signal name="busy" type="boolean" value="false"/>
+    <signal name="size" value="1280x720"/>
+    <signal name="fps" type="number" value="30"/>
+    <signal name="bin" value="sources"/>
+    <signal name="source-id" value=""/>
+    <signal name="clip-id" value=""/>
+    <signal name="scrub" type="number" value="0"/>
+    <signal name="range" value=""/>
+    <signal name="monitor-title" value="Monitor"/>
+    <signal name="has-marks" type="boolean" value="false"/>
+    <signal name="render-text" value="Render"/>
+    <signal name="has-item" type="boolean" value="false"/>
+    <signal name="item-volume" type="number" value="100"/>
+    <signal name="item-mute" type="boolean" value="false"/>
+    <signal name="timeline-info" value=""/>
+    <signal name="split-top" type="number" value="0.55"/>
+    <signal name="split-left" type="number" value="0.4"/>
+  </state>
+  <view>
+    <column padding="3" gap="3">
+      <row gap="2" align="center" wrap="true">
+        <button text="Import" action="import-media" enabled="{has-media}" tooltip="Add video and sound files"/>
+        <button text="Stored" action="stored-media" enabled="{has-media}" tooltip="Add files already kept on disk"/>
+        <select value="{size}" width="70" label="Picture size">
+          <option value="1920x1080" text="1080p"/>
+          <option value="1280x720" text="720p"/>
+          <option value="854x480" text="480p"/>
+          <option value="640x360" text="360p"/>
+          <option value="1080x1920" text="Tall 1080"/>
+          <option value="720x1280" text="Tall 720"/>
+          <option value="1080x1080" text="Square"/>
+        </select>
+        <select value="{fps}" width="58" label="Frames per second">
+          <option value="24" text="24 fps"/>
+          <option value="25" text="25 fps"/>
+          <option value="30" text="30 fps"/>
+          <option value="50" text="50 fps"/>
+          <option value="60" text="60 fps"/>
+        </select>
+        <button text="{render-text}" action="render" kind="accent" enabled="{has-media}"/>
+        <button text="Watch" action="watch" enabled="{has-media}" tooltip="Play the last render"/>
+        <spacer/>
+        <label text="{file-name}" bold="true"/>
+      </row>
+      <split direction="vertical" ratio="{split-top}" min="70" grow="1">
+        <split direction="horizontal" ratio="{split-left}" min="90">
+          <tabs value="{bin}">
+            <tab name="sources" title="Sources" gap="2">
+              <list id="sources" value="{source-id}" drag="source" activate="source-to-timeline" grow="1" label="Sources" empty="Import videos and sound to begin."/>
+              <row gap="2" wrap="true">
+                <button text="To timeline" action="source-to-timeline"/>
+                <button text="Remove" action="remove-source"/>
+              </row>
+            </tab>
+            <tab name="clips" title="Clips" gap="2">
+              <list id="clips" value="{clip-id}" drag="clip" activate="clip-to-video" grow="1" label="Clips" empty="Mark In and Out in the monitor, then Make clip."/>
+              <row gap="2" wrap="true">
+                <button text="To video" action="clip-to-video"/>
+                <button text="To audio" action="clip-to-audio"/>
+                <button text="Remove" action="remove-clip"/>
+              </row>
+            </tab>
+          </tabs>
+          <column gap="2">
+            <label text="{monitor-title}" color="dim"/>
+            <canvas id="monitor" grow="1" label="Monitor: the picture at the marker"/>
+            <slider value="{scrub}" min="0" max="1000" action="scrub" label="Position"/>
+            <row gap="2" align="center" wrap="true">
+              <button text="Set in" action="mark-in" tooltip="Start the clip here"/>
+              <button text="Set out" action="mark-out" tooltip="End the clip here"/>
+              <button text="Make clip" action="make-clip" enabled="{has-marks}" kind="accent"/>
+              <label text="{range}" color="dim"/>
+            </row>
+          </column>
+        </split>
+        <column gap="2">
+          <row gap="2" align="center" wrap="true">
+            <button text="Split" action="split-item" enabled="{has-item}" tooltip="Cut the clip under the marker in two"/>
+            <button text="Delete" action="delete-item" enabled="{has-item}"/>
+            <check text="Mute" value="{item-mute}" action="item-mute" enabled="{has-item}"/>
+            <spacer width="2" grow="0"/>
+            <label text="Volume" color="dim"/>
+            <slider value="{item-volume}" min="0" max="200" step="5" width="50" action="item-volume" enabled="{has-item}" label="Volume of the chosen clip"/>
+            <spacer/>
+            <label text="{timeline-info}" color="dim"/>
+          </row>
+          <canvas id="timeline" grow="1" label="Timeline: video with its sound, and an audio track"/>
+          <label text="{status}" color="dim"/>
+        </column>
+      </split>
+    </column>
+  </view>
+</app>

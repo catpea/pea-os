@@ -1,0 +1,28 @@
+{
+  "name": "pea-os",
+  "version": "0.5.0",
+  "description": "Pea OS (pos): a colorful pixel-art graphical OS for browsers and NativeScript, configured in XML.",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "pos": "bin/pos.mjs"
+  },
+  "scripts": {
+    "start": "node bin/pos.mjs serve",
+    "check": "node bin/pos.mjs check",
+    "test": "node --test test/*.test.mjs",
+    "shot": "node bin/pos.mjs shot",
+    "release:all": "/home/meow/AI/continuous-delivery/bin/delivery submit . --wait",
+    "release:web": "/home/meow/AI/continuous-delivery/bin/delivery submit . --target web --wait",
+    "build:web": "node /opt/delivery/web.mjs",
+    "release:android": "/home/meow/AI/continuous-delivery/bin/delivery submit . --target android --wait",
+    "build:android": "node /opt/delivery/android.mjs",
+    "release:linux": "/home/meow/AI/continuous-delivery/bin/delivery submit . --target linux --wait",
+    "build:linux": "node /opt/delivery/desktop.mjs linux",
+    "release:windows": "/home/meow/AI/continuous-delivery/bin/delivery submit . --target windows --wait",
+    "build:windows": "node /opt/delivery/desktop.mjs windows"
+  },
+  "engines": {
+    "node": ">=22.2.0"
+  }
+}

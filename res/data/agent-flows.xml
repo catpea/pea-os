@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Starting points for Agent Flow. Every one runs offline with Pea Mind; the
+  Agent nodes think with a model server instead when one is set up.
+  group: make (offline makers), team (agent patterns), family.
+-->
+<templates version="1">
+  <template id="poem" group="make" title="A poem for you" about="A few words in, a little poem out. Works offline.">
+    <agentflow version="1">
+      <node id="ask" type="ask" x="8" y="20"><set name="text" value="the moon over a sleepy garden"/></node>
+      <node id="haiku" type="poet" x="104" y="0"><set name="form" value="haiku"/></node>
+      <node id="rhyme" type="poet" x="104" y="64"/>
+      <node id="both" type="join" x="200" y="28"/>
+      <node id="poems" type="result" x="296" y="20"><set name="name" value="Two poems"/></node>
+      <wire from="ask.out" to="haiku.in"/>
+      <wire from="ask.out" to="rhyme.in"/>
+      <wire from="haiku.out" to="both.in"/>
+      <wire from="rhyme.out" to="both.in"/>
+      <wire from="both.out" to="poems.in"/>
+    </agentflow>
+  </template>
+
+  <template id="story-shape" group="make" title="The shape of a story" about="Kurt Vonnegut drew stories as curves of good and bad fortune. Pick a shape and a hero. Offline.">
+    <agentflow version="1">
+      <node id="ask" type="ask" x="8" y="8"><set name="text" value="a pea who wants to fly"/></node>
+      <node id="tale" type="story" x="104" y="8"/>
+      <node id="story" type="result" x="200" y="8"><set name="name" value="Your story"/></node>
+      <wire from="ask.out" to="tale.in"/>
+      <wire from="tale.out" to="story.in"/>
+    </agentflow>
+  </template>
+
+  <template id="bedtime" group="make" title="Bedtime story and lullaby" about="A gentle story that ends well, and a little rhyme to go with it. Offline.">
+    <agentflow version="1">
+      <node id="ask" type="ask" x="8" y="28"><set name="text" value="a sleepy hedgehog who cannot find its blanket"/></node>
+      <node id="tale" type="story" x="104" y="0"><set name="shape" value="man-in-hole"/></node>
+      <node id="lullaby" type="poet" x="104" y="84"/>
+      <node id="both" type="join" x="200" y="36"/>
+      <node id="bedtime" type="result" x="296" y="28"><set name="name" value="Bedtime"/></node>
+      <wire from="ask.out" to="tale.in"/>
+      <wire from="ask.out" to="lullaby.in"/>
+      <wire from="tale.out" to="both.in"/>
+      <wire from="lullaby.out" to="both.in"/>
+      <wire from="both.out" to="bedtime.in"/>
+    </agentflow>
+  </template>
+
+  <template id="song" group="make" title="Write a song" about="Verses, and a chorus that comes back. Offline.">
+    <agentflow version="1">
+      <node id="ask" type="ask" x="8" y="8"><set name="text" value="riding bikes on the first warm day"/></node>
+      <node id="lyrics" type="song" x="104" y="8"/>
+      <node id="song" type="result" x="200" y="8"><set name="name" value="Lyrics"/></node>
+      <wire from="ask.out" to="lyrics.in"/>
+      <wire from="lyrics.out" to="song.in"/>
+    </agentflow>
+  </template>
+
+  <template id="novel" group="make" title="Plan a novel" about="A chapter-by-chapter plan that follows a story shape. Offline.">
+    <agentflow version="1">
+      <node id="ask" type="ask" x="8" y="8"><set name="text" value="a lighthouse keeper who finds a map in a bottle"/></node>
+      <node id="plan" type="novel" x="104" y="8"/>
+      <node id="book" type="result" x="200" y="8"><set name="name" value="Novel plan"/></node>
+      <wire from="ask.out" to="plan.in"/>
+      <wire from="plan.out" to="book.in"/>
+    </agentflow>
+  </template>
+
+  <template id="word-game" group="make" title="Silly sentences" about="A word game: patterns with blanks, filled at random. Change the rules to make your own. Offline.">
+    <agentflow version="1">
+      <node id="game" type="grammar" x="8" y="8"/>
+      <node id="again" type="grammar" x="8" y="64"/>
+      <node id="both" type="join" x="104" y="28"/>
+      <node id="silly" type="result" x="200" y="28"><set name="name" value="Silly sentences"/></node>
+      <wire from="game.out" to="both.in"/>
+      <wire from="again.out" to="both.in"/>
+      <wire from="both.out" to="silly.in"/>
+    </agentflow>
+  </template>
+
+  <template id="weekend" group="family" title="Family weekend ideas" about="Things to do together that fit the day and the budget. Offline.">
+    <agentflow version="1">
+      <node id="ask" type="ask" x="8" y="8"><set name="text" value="a rainy Saturday, two kids, a small budget"/></node>
+      <node id="ideas" type="family" x="104" y="8"/>
+      <node id="weekend" type="result" x="200" y="8"><set name="name" value="Ideas"/></node>
+      <wire from="ask.out" to="ideas.in"/>
+      <wire from="ideas.out" to="weekend.in"/>
+    </agentflow>
+  </template>
+
+  <template id="story-starter" group="make" title="Story starter" about="Fill in a hero and a place; the prompt asks for a title, a story and its mood, each on its own wire. Offline, or with a model.">
+    <agentflow version="1">
+      <node id="hero" type="ask" x="8" y="0"><set name="name" value="Hero"/><set name="text" value="a brave little boat"/></node>
+      <node id="place" type="ask" x="8" y="56"><set name="name" value="Place"/><set name="text" value="a stormy harbour"/></node>
+      <node id="starter" type="prompt" x="104" y="16"><set name="name" value="Story starter"/><set name="prompt" value="Write a very short story for a young child about {{hero}} in {{place}}. Give it a title, and say in one word how it feels."/><set name="answer" value="title: The Brave Little Boat&#10;story: Once upon a time...&#10;mood: happy"/></node>
+      <node id="title" type="result" x="204" y="0"><set name="name" value="Title"/></node>
+      <node id="story" type="result" x="204" y="82"><set name="name" value="Story"/></node>
+      <node id="mood" type="result" x="204" y="164"><set name="name" value="Mood"/></node>
+      <wire from="hero.out" to="starter.hero"/>
+      <wire from="place.out" to="starter.place"/>
+      <wire from="starter.title" to="title.in"/>
+      <wire from="starter.story" to="story.in"/>
+      <wire from="starter.mood" to="mood.in"/>
+    </agentflow>
+  </template>
+
+  <template id="fill-in" group="team" title="Fill in the blanks" about="Inputs go into a prompt at {{firstName}} and {{lastName}}; the answer comes back on a wire named username.">
+    <agentflow version="1">
+      <node id="first" type="ask" x="8" y="0"><set name="name" value="First name"/><set name="text" value="Alice"/></node>
+      <node id="last" type="ask" x="8" y="56"><set name="name" value="Last name"/><set name="text" value="Smith"/></node>
+      <node id="username" type="prompt" x="104" y="16"><set name="name" value="Username"/></node>
+      <node id="answer" type="result" x="204" y="16"><set name="name" value="Username"/></node>
+      <wire from="first.out" to="username.firstName"/>
+      <wire from="last.out" to="username.lastName"/>
+      <wire from="username.username" to="answer.in"/>
+    </agentflow>
+  </template>
+
+  <template id="team-solve" group="team" title="Team solve" about="Plan, two kinds of ideas, solve, test, review, repair and verify: a whole team on one problem.">
+    <agentflow version="1">
+      <node id="ask" type="ask" x="8" y="40"><set name="text" value="Our class wants to grow vegetables, but we only have a sunny windowsill."/></node>
+      <node id="plan" type="agent" x="100" y="40"><set name="role" value="plan"/></node>
+      <node id="ideate-a" type="agent" x="192" y="0"><set name="name" value="Bold ideas"/><set name="role" value="ideate"/><set name="instructions" value="angle: bold. Be daring and surprising."/></node>
+      <node id="ideate-b" type="agent" x="192" y="88"><set name="name" value="Careful ideas"/><set name="role" value="ideate"/><set name="instructions" value="angle: careful. Be safe, simple and cheap."/></node>
+      <node id="solve" type="agent" x="284" y="40"><set name="role" value="solve"/></node>
+      <node id="test" type="agent" x="376" y="40"><set name="role" value="test"/></node>
+      <node id="review" type="agent" x="468" y="40"><set name="role" value="review"/></node>
+      <node id="repair" type="agent" x="560" y="40"><set name="role" value="repair"/></node>
+      <node id="verify" type="agent" x="652" y="40"><set name="role" value="verify"/></node>
+      <node id="answer" type="result" x="744" y="40"><set name="name" value="Answer"/></node>
+      <wire from="ask.out" to="plan.in"/>
+      <wire from="plan.out" to="ideate-a.in"/>
+      <wire from="plan.out" to="ideate-b.in"/>
+      <wire from="ideate-a.out" to="solve.in"/>
+      <wire from="ideate-b.out" to="solve.in"/>
+      <wire from="plan.out" to="solve.in"/>
+      <wire from="solve.out" to="test.in"/>
+      <wire from="solve.out" to="review.in"/>
+      <wire from="test.out" to="review.in"/>
+      <wire from="solve.out" to="repair.in"/>
+      <wire from="review.out" to="repair.in"/>
+      <wire from="ask.out" to="verify.in"/>
+      <wire from="repair.out" to="verify.in"/>
+      <wire from="repair.out" to="answer.in"/>
+      <wire from="verify.out" to="answer.in"/>
+    </agentflow>
+  </template>
+
+  <template id="step-by-step" group="team" title="Step by step" about="One helper after another: outline, draft, polish. Each passes its work to the next.">
+    <agentflow version="1">
+      <node id="ask" type="ask" x="8" y="8"><set name="text" value="A short speech for my grandmother's 80th birthday"/></node>
+      <node id="outline" type="agent" x="100" y="8"><set name="name" value="Outline"/><set name="role" value="plan"/></node>
+      <node id="draft" type="agent" x="192" y="8"><set name="name" value="Draft"/><set name="role" value="write"/></node>
+      <node id="polish" type="agent" x="284" y="8"><set name="name" value="Polish"/><set name="role" value="repair"/><set name="instructions" value="Make it warmer and shorter."/></node>
+      <node id="speech" type="result" x="376" y="8"><set name="name" value="Speech"/></node>
+      <wire from="ask.out" to="outline.in"/>
+      <wire from="outline.out" to="draft.in"/>
+      <wire from="draft.out" to="polish.in"/>
+      <wire from="polish.out" to="speech.in"/>
+    </agentflow>
+  </template>
+
+  <template id="helpers" group="team" title="Many helpers at once" about="Three helpers work side by side, then a judge puts the best of each together.">
+    <agentflow version="1">
+      <node id="ask" type="ask" x="8" y="64"><set name="text" value="A name and a motto for our family band"/></node>
+      <node id="funny" type="agent" x="100" y="0"><set name="name" value="Funny"/><set name="role" value="ideate"/><set name="instructions" value="angle: funny"/></node>
+      <node id="kind" type="agent" x="100" y="64"><set name="name" value="Kind"/><set name="role" value="ideate"/><set name="instructions" value="angle: kind"/></node>
+      <node id="brave" type="agent" x="100" y="128"><set name="name" value="Brave"/><set name="role" value="ideate"/><set name="instructions" value="angle: brave"/></node>
+      <node id="all" type="join" x="192" y="72"/>
+      <node id="judge" type="agent" x="284" y="64"><set name="name" value="Judge"/><set name="role" value="review"/><set name="instructions" value="Pick the best idea and say why."/></node>
+      <node id="pick" type="result" x="376" y="64"><set name="name" value="Best idea"/></node>
+      <wire from="ask.out" to="funny.in"/>
+      <wire from="ask.out" to="kind.in"/>
+      <wire from="ask.out" to="brave.in"/>
+      <wire from="funny.out" to="all.in"/>
+      <wire from="kind.out" to="all.in"/>
+      <wire from="brave.out" to="all.in"/>
+      <wire from="all.out" to="judge.in"/>
+      <wire from="judge.out" to="pick.in"/>
+    </agentflow>
+  </template>
+
+  <template id="try-again" group="team" title="Try again until it is good" about="A writer and a checker: the checker sends the work back until it meets the rules.">
+    <agentflow version="1">
+      <node id="ask" type="ask" x="8" y="8"><set name="text" value="A thank-you note to our neighbour for the apples"/></node>
+      <node id="writer" type="agent" x="100" y="8"><set name="name" value="Writer"/><set name="role" value="write"/></node>
+      <node id="check" type="check" x="192" y="8"><set name="min-words" value="25"/><set name="must" value="apples, thank"/></node>
+      <node id="note" type="result" x="288" y="8"><set name="name" value="Note"/></node>
+      <wire from="ask.out" to="writer.in"/>
+      <wire from="writer.out" to="check.in"/>
+      <wire from="check.pass" to="note.in"/>
+      <wire from="check.retry" to="writer.in"/>
+    </agentflow>
+  </template>
+
+  <template id="which-way" group="team" title="Which way?" about="A router reads the request and sends it to the right maker: poem, story or helper.">
+    <agentflow version="1">
+      <node id="ask" type="ask" x="8" y="64"><set name="text" value="Tell me a story about a brave little boat"/></node>
+      <node id="route" type="router" x="100" y="60"/>
+      <node id="poet" type="poet" x="200" y="0"/>
+      <node id="teller" type="story" x="200" y="64"/>
+      <node id="helper" type="agent" x="200" y="148"><set name="name" value="Helper"/><set name="role" value="chat"/></node>
+      <node id="answer" type="result" x="296" y="64"><set name="name" value="Answer"/></node>
+      <wire from="ask.out" to="route.in"/>
+      <wire from="route.a" to="poet.in"/>
+      <wire from="route.b" to="teller.in"/>
+      <wire from="route.c" to="helper.in"/>
+      <wire from="poet.out" to="answer.in"/>
+      <wire from="teller.out" to="answer.in"/>
+      <wire from="helper.out" to="answer.in"/>
+    </agentflow>
+  </template>
+</templates>

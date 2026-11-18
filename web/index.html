@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#16161d">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Pea OS</title>
+  <style>
+    html, body { height: 100%; margin: 0; overflow: hidden; background: #16161d; }
+    canvas { display: block; width: 100%; height: 100%; touch-action: none; outline: none; }
+    .pea-start-error { position: absolute; inset: 20% 10% auto; color: #fbf7ea; background: #3a3550; padding: 20px; font: 16px/1.5 sans-serif; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <canvas data-pea-os tabindex="0" aria-label="Pea OS desktop. Open Start to find applications and documents."></canvas>
+  <!-- pixi.js 8.5.2, the version @nativescript/canvas-pixi builds against. The hash pins the exact file. -->
+  <script src="./vendor/pixi.min.js"
+          integrity="sha512-nvzaLFu+uAwAY97f2bfy2jStxEYnmMThyraoEsaDy7LNw1us3/OoBKZm3Wne2GYBBQ9OhbZfs+0Dnxs6+sdZgA=="
+          referrerpolicy="no-referrer"></script>
+  <script type="module" src="../src/platform/browser.js"></script>
+</body>
+</html>

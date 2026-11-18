@@ -1,0 +1,917 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Small pictures for menus, lists and task buttons.
+
+  glyph-*  7x7 shapes. Menus draw them in the color of the text beside them
+           (dim at rest, bright under the pointer), so they stay quiet.
+  mark-*   5x5 marks for list rows, such as unread articles.
+  mini-*   9x9 full-color app icons, one per app: the 16x16 icon's little
+           sibling, used wherever a whole icon would not fit.
+-->
+<sprites version="1">
+  <color key="x" role="text"/>
+  <color key="a" role="accent"/>
+  <color key="1" value="#ffe59a"/>
+  <color key="2" value="#bfe7b7"/>
+  <color key="3" value="#bcdff4"/>
+  <color key="4" value="#f1c6dc"/>
+  <color key="5" value="#d9cff3"/>
+  <color key="k" value="#16161d"/>
+  <color key="v" value="#3a3550"/>
+  <color key="d" value="#6b6a86"/>
+  <color key="e" value="#a9aec4"/>
+  <color key="w" value="#fbf7ea"/>
+  <color key="y" value="#ffd75e"/>
+  <color key="o" value="#ff9a3d"/>
+  <color key="r" value="#e8475a"/>
+  <color key="m" value="#c74aa6"/>
+  <color key="p" value="#6d3fa8"/>
+  <color key="n" value="#2b3a8c"/>
+  <color key="b" value="#3f7fe0"/>
+  <color key="c" value="#63d2f0"/>
+  <color key="g" value="#46b04a"/>
+  <color key="l" value="#b5e35a"/>
+  <color key="G" value="#1d4d2b"/>
+  <color key="B" value="#8a5a3c"/>
+
+  <!-- ===== Glyphs ===== -->
+
+  <sprite id="glyph-info">
+    ...x...
+    .......
+    ..xx...
+    ...x...
+    ...x...
+    ...x...
+    ..xxx..
+  </sprite>
+
+  <sprite id="glyph-settings">
+    .x.....
+    xxxxxxx
+    .x.....
+    .....x.
+    xxxxxxx
+    .....x.
+    .......
+  </sprite>
+
+  <sprite id="glyph-fullscreen">
+    xx...xx
+    x.....x
+    .......
+    .......
+    .......
+    x.....x
+    xx...xx
+  </sprite>
+
+  <sprite id="glyph-new">
+    xxxx...
+    x..xx..
+    x...xx.
+    x....x.
+    x....x.
+    x....x.
+    xxxxxx.
+  </sprite>
+
+  <sprite id="glyph-open">
+    .......
+    xxx....
+    x..xxxx
+    x.....x
+    x.....x
+    x.....x
+    xxxxxxx
+  </sprite>
+
+  <sprite id="glyph-save">
+    xxxxxx.
+    x.x.x.x
+    x.xxx.x
+    x.....x
+    x.xxx.x
+    x.xxx.x
+    xxxxxxx
+  </sprite>
+
+  <sprite id="glyph-pencil">
+    .....x.
+    ....x.x
+    ...x.x.
+    ..x.x..
+    .x.x...
+    xxx....
+    xx.....
+  </sprite>
+
+  <sprite id="glyph-import">
+    ...x...
+    ...x...
+    .x.x.x.
+    ..xxx..
+    x..x..x
+    x.....x
+    xxxxxxx
+  </sprite>
+
+  <sprite id="glyph-export">
+    ...x...
+    ..xxx..
+    .x.x.x.
+    ...x...
+    x..x..x
+    x.....x
+    xxxxxxx
+  </sprite>
+
+  <sprite id="glyph-undo">
+    ..x....
+    .xx....
+    xxxxxx.
+    .xx...x
+    ..x...x
+    ......x
+    ..xxxx.
+  </sprite>
+
+  <sprite id="glyph-redo">
+    ....x..
+    ....xx.
+    .xxxxxx
+    x...xx.
+    x...x..
+    x......
+    .xxxx..
+  </sprite>
+
+  <sprite id="glyph-search">
+    .xxx...
+    x...x..
+    x...x..
+    x...x..
+    .xxx...
+    ....xx.
+    .....xx
+  </sprite>
+
+  <sprite id="glyph-overview">
+    xxx.xxx
+    x.x.x.x
+    xxx.xxx
+    .......
+    xxx.xxx
+    x.x.x.x
+    xxx.xxx
+  </sprite>
+
+  <sprite id="glyph-desk">
+    xxxxxxx
+    x.....x
+    x.....x
+    x.....x
+    xxxxxxx
+    ...x...
+    .xxxxx.
+  </sprite>
+
+  <sprite id="glyph-note">
+    xxxxxxx
+    x.....x
+    x.xxx.x
+    x.....x
+    x.xx..x
+    x....x.
+    xxxxx..
+  </sprite>
+
+  <sprite id="glyph-eye">
+    .......
+    ..xxx..
+    .x...x.
+    x..x..x
+    .x...x.
+    ..xxx..
+    .......
+  </sprite>
+
+  <sprite id="glyph-map">
+    xxxxxxx
+    x.....x
+    x.xxx.x
+    x.x.x.x
+    x.xxx.x
+    x.....x
+    xxxxxxx
+  </sprite>
+
+  <sprite id="glyph-gather">
+    x.....x
+    .xx.xx.
+    .x...x.
+    ...x...
+    .x...x.
+    .xx.xx.
+    x.....x
+  </sprite>
+
+  <sprite id="glyph-cascade">
+    xxxxx..
+    x...x..
+    x.xxxxx
+    x.x...x
+    xxx...x
+    ..x...x
+    ..xxxxx
+  </sprite>
+
+  <sprite id="glyph-tidy">
+    xx...xx
+    xx...xx
+    .......
+    .......
+    .......
+    xx...xx
+    xx...xx
+  </sprite>
+
+  <sprite id="glyph-home">
+    ...x...
+    ..xxx..
+    .xxxxx.
+    xxxxxxx
+    .x...x.
+    .x.x.x.
+    .x.x.x.
+  </sprite>
+
+  <sprite id="glyph-show-desktop">
+    xxxxxxx
+    x.....x
+    x.....x
+    x.....x
+    xxxxxxx
+    .......
+    xxxxxxx
+  </sprite>
+
+  <sprite id="glyph-pan">
+    ...x...
+    ..xxx..
+    .x.x.x.
+    xxxxxxx
+    .x.x.x.
+    ..xxx..
+    ...x...
+  </sprite>
+
+  <sprite id="glyph-taskbar">
+    .......
+    .......
+    .......
+    .......
+    xxxxxxx
+    x.x...x
+    xxxxxxx
+  </sprite>
+
+  <sprite id="glyph-keyboard">
+    .......
+    xxxxxxx
+    x.x.x.x
+    xxxxxxx
+    x.xxx.x
+    xxxxxxx
+    .......
+  </sprite>
+
+  <sprite id="glyph-minimize">
+    .......
+    .......
+    .......
+    .......
+    .......
+    xxxxxxx
+    xxxxxxx
+  </sprite>
+
+  <sprite id="glyph-maximize">
+    xxxxxxx
+    xxxxxxx
+    x.....x
+    x.....x
+    x.....x
+    x.....x
+    xxxxxxx
+  </sprite>
+
+  <sprite id="glyph-top">
+    xxxxxxx
+    .......
+    ...x...
+    ..xxx..
+    .x.x.x.
+    ...x...
+    ...x...
+  </sprite>
+
+  <sprite id="glyph-everywhere">
+    xxxx...
+    x..x...
+    x.xxxx.
+    xxx..x.
+    ..x..x.
+    ..xxxx.
+    .......
+  </sprite>
+
+  <sprite id="glyph-shade">
+    xxxxxxx
+    xxxxxxx
+    .......
+    ...x...
+    ..x.x..
+    .x...x.
+    .......
+  </sprite>
+
+  <sprite id="glyph-tile-left">
+    xxxxxxx
+    xxx...x
+    xxx...x
+    xxx...x
+    xxx...x
+    xxx...x
+    xxxxxxx
+  </sprite>
+
+  <sprite id="glyph-tile-right">
+    xxxxxxx
+    x...xxx
+    x...xxx
+    x...xxx
+    x...xxx
+    x...xxx
+    xxxxxxx
+  </sprite>
+
+  <sprite id="glyph-close">
+    x.....x
+    .x...x.
+    ..x.x..
+    ...x...
+    ..x.x..
+    .x...x.
+    x.....x
+  </sprite>
+
+  <sprite id="glyph-move">
+    .......
+    ....x..
+    .....x.
+    xxxxxxx
+    .....x.
+    ....x..
+    .......
+  </sprite>
+
+  <sprite id="glyph-bin">
+    ..xxx..
+    xxxxxxx
+    .x...x.
+    .x.x.x.
+    .x.x.x.
+    .x...x.
+    .xxxxx.
+  </sprite>
+
+  <sprite id="glyph-labels">
+    xxxxxxx
+    x..x..x
+    ...x...
+    ...x...
+    ...x...
+    ...x...
+    ..xxx..
+  </sprite>
+
+  <sprite id="glyph-grid">
+    .x...x.
+    xxxxxxx
+    .x...x.
+    .x...x.
+    .x...x.
+    xxxxxxx
+    .x...x.
+  </sprite>
+
+  <sprite id="glyph-zoom">
+    .xxx...
+    x.x.x..
+    xxxxx..
+    x.x.x..
+    .xxx...
+    ....xx.
+    .....xx
+  </sprite>
+
+  <sprite id="glyph-smooth">
+    .......
+    .xx....
+    x..x..x
+    ....xx.
+    .xx....
+    x..x..x
+    ....xx.
+  </sprite>
+
+  <sprite id="glyph-scanlines">
+    xxxxxxx
+    .......
+    xxxxxxx
+    .......
+    xxxxxxx
+    .......
+    xxxxxxx
+  </sprite>
+
+  <sprite id="glyph-motion">
+    .x.....
+    .xx....
+    .xxx...
+    .xxxx..
+    .xxx...
+    .xx....
+    .x.....
+  </sprite>
+
+  <sprite id="glyph-theme">
+    ...x...
+    ..x.x..
+    .x...x.
+    x.....x
+    x...x.x
+    .x...x.
+    ..xxx..
+  </sprite>
+
+  <sprite id="glyph-pixels">
+    xx..xx.
+    xx..xx.
+    ..xx..x
+    ..xx..x
+    xx..xx.
+    xx..xx.
+    ..xx..x
+  </sprite>
+
+  <sprite id="glyph-here">
+    ...x...
+    .xxxxx.
+    .x...x.
+    xx.x.xx
+    .x...x.
+    .xxxxx.
+    ...x...
+  </sprite>
+
+  <sprite id="glyph-refresh">
+    ..xxxx.
+    .x...xx
+    x...xxx
+    x......
+    x.....x
+    .x...x.
+    ..xxx..
+  </sprite>
+
+  <sprite id="glyph-plus">
+    ...x...
+    ...x...
+    ...x...
+    xxxxxxx
+    ...x...
+    ...x...
+    ...x...
+  </sprite>
+
+  <sprite id="glyph-link">
+    ...xxxx
+    .....xx
+    ....x.x
+    x..x..x
+    x.x....
+    x......
+    xxxxx..
+  </sprite>
+
+  <sprite id="glyph-copy">
+    xxxx...
+    x..x...
+    x.xxxxx
+    x.x...x
+    xxx...x
+    ..x...x
+    ..xxxxx
+  </sprite>
+
+  <sprite id="glyph-play">
+    x......
+    xxx....
+    xxxxx..
+    xxxxxxx
+    xxxxx..
+    xxx....
+    x......
+  </sprite>
+
+  <sprite id="glyph-stop">
+    .......
+    .xxxxx.
+    .xxxxx.
+    .xxxxx.
+    .xxxxx.
+    .xxxxx.
+    .......
+  </sprite>
+
+  <sprite id="glyph-star">
+    ...x...
+    ...x...
+    xxxxxxx
+    .xxxxx.
+    ..xxx..
+    .xx.xx.
+    .x...x.
+  </sprite>
+
+  <!-- ===== List marks: unread and read take the same room ===== -->
+
+  <sprite id="mark-unread">
+    .kkk.
+    kaaak
+    kaaak
+    kaaak
+    .kkk.
+  </sprite>
+
+  <sprite id="mark-read">
+    .....
+    .....
+    .....
+    .....
+    .....
+  </sprite>
+
+  <!-- Provider states, in Software: in use or ready; works here but not chosen; cannot work now; not offered or turned off.
+       Outlined in the text color, so they show on light and dark themes alike. -->
+  <sprite id="mark-on">
+    .xxx.
+    xgggx
+    xgggx
+    xgggx
+    .xxx.
+  </sprite>
+
+  <sprite id="mark-ready">
+    .xxx.
+    x...x
+    x...x
+    x...x
+    .xxx.
+  </sprite>
+
+  <sprite id="mark-warn">
+    .xxx.
+    xooox
+    xooox
+    xooox
+    .xxx.
+  </sprite>
+
+  <sprite id="mark-off">
+    .....
+    .....
+    .ddd.
+    .....
+    .....
+  </sprite>
+
+  <!-- ===== Note colors, as little notes with a folded corner ===== -->
+
+  <sprite id="note-1">
+    kkkkkkk.
+    k11111k.
+    k11111k.
+    k11111k.
+    k11111k.
+    k1111kk.
+    kkkkkk..
+  </sprite>
+
+  <sprite id="note-2">
+    kkkkkkk.
+    k22222k.
+    k22222k.
+    k22222k.
+    k22222k.
+    k2222kk.
+    kkkkkk..
+  </sprite>
+
+  <sprite id="note-3">
+    kkkkkkk.
+    k33333k.
+    k33333k.
+    k33333k.
+    k33333k.
+    k3333kk.
+    kkkkkk..
+  </sprite>
+
+  <sprite id="note-4">
+    kkkkkkk.
+    k44444k.
+    k44444k.
+    k44444k.
+    k44444k.
+    k4444kk.
+    kkkkkk..
+  </sprite>
+
+  <sprite id="note-5">
+    kkkkkkk.
+    k55555k.
+    k55555k.
+    k55555k.
+    k55555k.
+    k5555kk.
+    kkkkkk..
+  </sprite>
+
+  <!-- ===== Mini app icons ===== -->
+
+  <sprite id="mini-paint">
+    ......kk.
+    .....kBk.
+    ....kBk..
+    ...kek...
+    ..krk....
+    .krrk....
+    .kk......
+    .........
+    yy.bb.gg.
+  </sprite>
+
+  <sprite id="mini-cards">
+    ..kkkkkk.
+    ..kwwwwk.
+    kkkkkkwk.
+    kyyyykwk.
+    kyooykkk.
+    kyyyyk...
+    kyooyk...
+    kyyyyk...
+    kkkkkk...
+  </sprite>
+
+  <sprite id="mini-pea-timer">
+    .........
+    ...kok...
+    ..kkkkk..
+    .kwwkwwk.
+    .kwwkwwk.
+    .kwwrkwk.
+    .kwwwwek.
+    ..kkkkk..
+    .........
+  </sprite>
+
+  <sprite id="mini-catch">
+    .........
+    ...kkk...
+    ..kllgk..
+    .klllggk.
+    .klgggGk.
+    .kggggGk.
+    ..kGGGk..
+    ...kkk...
+    .........
+  </sprite>
+
+  <sprite id="mini-calc">
+    kkkkkkkkk
+    kGGGGGllk
+    kkkkkkkkk
+    kwkwkwkok
+    kkkkkkkkk
+    kwkwkwkok
+    kkkkkkkkk
+    kwkwkwkrk
+    kkkkkkkkk
+  </sprite>
+
+  <sprite id="mini-settings">
+    .........
+    .kkk.....
+    vkykvvvvv
+    .kkk.....
+    .....kkk.
+    vvvvvkckv
+    .....kkk.
+    .........
+    .........
+  </sprite>
+
+  <sprite id="mini-notepad">
+    kkkkkkkk.
+    kllllllk.
+    kkkkkkkk.
+    kwwwwwwk.
+    kwddddwk.
+    kwwwwwwk.
+    kwdddwwk.
+    kwwwwwwk.
+    kkkkkkkk.
+  </sprite>
+
+  <sprite id="mini-notes">
+    .........
+    kkkkkkkk.
+    kyyyyyyk.
+    kyddddyk.
+    kyyyyyyk.
+    kyddyyyk.
+    kyyyyyk..
+    kkkkkkk..
+    .........
+  </sprite>
+
+  <sprite id="mini-documents">
+    .........
+    kkkk.....
+    kyyyk....
+    kkkkkkkk.
+    kyyyyyyk.
+    kyyyyyyk.
+    kyyyyyyk.
+    kkkkkkkk.
+    .........
+  </sprite>
+
+  <sprite id="mini-records">
+    ..kkk....
+    .kcck....
+    kkkkkkkkk
+    kwwwwwwwk
+    kwdddwwwk
+    kwwwwwwwk
+    kwddddwwk
+    kwwwwwwwk
+    kkkkkkkkk
+  </sprite>
+
+  <sprite id="mini-feeds">
+    .kkkkkkk.
+    koooooook
+    kowwooook
+    kooowoook
+    kowwowook
+    kooowowok
+    kowowowok
+    koooooook
+    .kkkkkkk.
+  </sprite>
+
+  <sprite id="mini-flow">
+    kkkk.....
+    kbbkccc..
+    kbbk..c..
+    kkkk..y..
+    ......c..
+    .....kkkk
+    .....kmmk
+    .....kmmk
+    .....kkkk
+  </sprite>
+
+  <sprite id="mini-chat">
+    .........
+    .kkkkkkk.
+    kccccccck
+    kcwcwcwck
+    kccccccck
+    .kkkkcck.
+    .....kck.
+    ......kk.
+    .........
+  </sprite>
+
+  <sprite id="mini-agents">
+    kkk...kkk
+    kpk...kgk
+    kkk...kkk
+    .v.....v.
+    .vvvvvvv.
+    ....v....
+    .kkkkkkk.
+    .kwkkkwk.
+    .kkkkkkk.
+  </sprite>
+
+  <sprite id="mini-software">
+    ...kbk...
+    ...kbk...
+    .kkkbkkk.
+    ..kbbbk..
+    ...kbk...
+    ....k....
+    kkkkkkkkk
+    kyyyyyyyk
+    kkkkkkkkk
+  </sprite>
+
+  <sprite id="mini-regex">
+    kkkkkkkkk
+    kmmmmmwmk
+    kmmmwmwmk
+    kmmmmwwmk
+    kmmmwmmmk
+    kmmmmmmmk
+    kmwwmmmmk
+    kmwwmmmmk
+    kkkkkkkkk
+  </sprite>
+
+  <sprite id="mini-json">
+    kkkkkkkkk
+    kykkykkyk
+    kykyyykyk
+    kkyyyyykk
+    kykyyykyk
+    kykkykkyk
+    kyyyyyyyk
+    koooooook
+    kkkkkkkkk
+  </sprite>
+
+  <sprite id="mini-diff">
+    kkkkkkkkk
+    keeeeewwk
+    krrrrrrrk
+    krwwwrrrk
+    kgggggggk
+    kggwggggk
+    kgwwwgggk
+    kggwggggk
+    kkkkkkkkk
+  </sprite>
+
+  <sprite id="mini-http">
+    ..kkkkk..
+    .kbbcbbk.
+    kbcbbbcbk
+    kccccccck
+    kbcbbbcbk
+    kccccccck
+    kbcbbbcbk
+    .kbbcbbk.
+    ..kkkkk..
+  </sprite>
+
+  <sprite id="mini-codec">
+    kkkkkkkkk
+    kwwwowook
+    kwowowook
+    kwwwowook
+    koooooook
+    kvvvovook
+    kvovovvvk
+    kvvvovvvk
+    kkkkkkkkk
+  </sprite>
+  <sprite id="mini-music">
+    ....kk...
+    ....kyk..
+    ....ky.k.
+    ....ky...
+    ....ky...
+    .kkkky...
+    kyyyyk...
+    kyyyyk...
+    .kkkk....
+  </sprite>
+
+  <sprite id="mini-video">
+    kkkkkkkkk
+    kwwkkwwkk
+    kkkkkkkkk
+    kkkkkkkkk
+    knnnnnnnk
+    knwwwnnnk
+    knnnnnnnk
+    knwwnnwnk
+    kkkkkkkkk
+  </sprite>
+</sprites>

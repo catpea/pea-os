@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Jukebox: a small player with its playlist in a window of its own. Music is
+  kept by the files service and played by the sound service, so it is the
+  phone's own media player on Android and the browser's elsewhere.
+-->
+<app version="1" id="music" requires="audio files" category="play" summary="Play your music from a playlist, and keep it playing in the background" title="Jukebox" sprite="music" tint="#6d3fa8" width="236" height="98" min-width="196" min-height="98">
+  <state>
+    <signal name="volume" type="number" value="80"/>
+    <signal name="seek" type="number" value="0"/>
+    <signal name="shuffle" type="boolean" value="false"/>
+    <signal name="repeat" type="boolean" value="false"/>
+    <signal name="track" value=""/>
+    <signal name="play-text" value="▶"/>
+    <signal name="playlist-info" value="0 tracks"/>
+  </state>
+  <view>
+    <column padding="3" gap="3">
+      <canvas id="display" grow="1" height="40" label="Now playing: time, title and spectrum"/>
+      <slider value="{seek}" min="0" max="1000" action="seek" label="Position in the track"/>
+      <row gap="2" align="center">
+        <button text="⏮" action="previous" tooltip="Previous track"/>
+        <button text="{play-text}" action="play-pause" kind="accent" tooltip="Play or pause"/>
+        <button text="■" action="stop" tooltip="Stop"/>
+        <button text="⏭" action="next" tooltip="Next track"/>
+        <button text="⏏" action="add-files" tooltip="Add music files"/>
+        <spacer/>
+        <slider value="{volume}" min="0" max="100" width="46" action="volume" label="Volume"/>
+      </row>
+      <row gap="4" align="center">
+        <check text="Shuffle" value="{shuffle}"/>
+        <check text="Repeat" value="{repeat}"/>
+        <spacer/>
+        <button text="Playlist" action="tool:music.playlist"/>
+      </row>
+    </column>
+  </view>
+  <tool id="playlist" title="Playlist" width="206" height="150" min-width="150" min-height="90">
+    <view>
+      <column padding="3" gap="3">
+        <list id="tracks" value="{track}" activate="play-selected" grow="1" label="Playlist" empty="No music yet. Add files to begin."/>
+        <row gap="2" wrap="true" align="center">
+          <button text="Add files" action="add-files"/>
+          <button text="Add stored" action="add-stored" tooltip="Add music kept in Files"/>
+          <button text="Remove" action="remove-track"/>
+          <button text="Clear" action="clear-list"/>
+        </row>
+        <row gap="2" wrap="true" align="center">
+          <button text="Open list" action="open-list" tooltip="Open an XSPF playlist"/>
+          <button text="Save list" action="save-list" tooltip="Save the playlist as XSPF"/>
+          <spacer/>
+          <label text="{playlist-info}" color="dim"/>
+        </row>
+      </column>
+    </view>
+  </tool>
+</app>

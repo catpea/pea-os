@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app version="1" id="codec" category="develop" summary="Encode, decode and hash text" title="Codec Bench" sprite="codec" tint="#ff9a3d" width="300" height="220" min-width="210" min-height="170">
+  <state>
+    <signal name="input" value="Pea OS ♥ pixels"/>
+    <signal name="operation" value="base64-encode"/>
+    <signal name="output" value=""/>
+    <signal name="status" value=""/>
+  </state>
+  <view>
+    <column padding="4" gap="3">
+      <row gap="3" align="center">
+        <select value="{operation}" grow="1" label="Operation">
+          <option value="base64-encode" text="Base64 encode"/>
+          <option value="base64-decode" text="Base64 decode"/>
+          <option value="url-encode" text="URL encode"/>
+          <option value="url-decode" text="URL decode"/>
+          <option value="hex-encode" text="Hex encode (UTF-8)"/>
+          <option value="hex-decode" text="Hex decode"/>
+          <option value="html-escape" text="HTML escape"/>
+          <option value="html-unescape" text="HTML unescape"/>
+          <option value="sha-256" text="SHA-256"/>
+          <option value="sha-1" text="SHA-1"/>
+          <option value="jwt" text="JWT: read a token"/>
+          <option value="time" text="Time: Unix to date and back"/>
+          <option value="uuid" text="New UUID"/>
+        </select>
+        <button text="Use output" action="use-output"/>
+      </row>
+      <split direction="vertical" ratio="0.5" min="30" grow="1">
+        <textarea value="{input}" maxlength="1000000" label="Input"/>
+        <textarea value="{output}" readonly="true" label="Output"/>
+      </split>
+      <label text="{status}" color="dim"/>
+    </column>
+  </view>
+</app>

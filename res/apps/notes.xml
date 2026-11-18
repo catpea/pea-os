@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app version="1" id="notes" category="organize" summary="Notes that live on the desktop" title="Sticky Notes" sprite="notes" tint="#ffd75e" width="240" height="196" min-width="160" min-height="130">
+  <state>
+    <signal name="selection" value=""/>
+    <signal name="query" value=""/>
+    <signal name="has-selection" type="boolean" value="false"/>
+    <signal name="has-archive" type="boolean" value="false"/>
+    <signal name="status" value="Create a note to keep an idea on your desktop."/>
+  </state>
+  <view>
+    <scroll>
+    <column padding="5" gap="4">
+      <row gap="3" align="center">
+        <field value="{query}" placeholder="Search notes" grow="1" label="Search notes"/>
+        <button text="New" action="create-note" kind="accent"/>
+      </row>
+      <!-- The list takes whatever height the window has; the rest keeps its natural size. -->
+      <list id="notesList" value="{selection}" grow="1" activate="reveal-note" empty="No notes yet" label="Notes"/>
+      <row gap="3" wrap="true">
+        <button text="Reveal" action="reveal-note" enabled="{has-selection}"/>
+        <button text="Duplicate" action="duplicate-note" enabled="{has-selection}"/>
+        <button text="Archive" action="archive-note" enabled="{has-selection}"/>
+        <button text="Restore" action="restore-note" enabled="{has-archive}"/>
+        <button text="Export" action="export-notes"/>
+        <button text="Import" action="import-notes"/>
+        <button text="Empty archive…" action="empty-archive" enabled="{has-archive}"/>
+      </row>
+      <label text="{status}" color="dim" wrap="true"/>
+    </column>
+    </scroll>
+  </view>
+</app>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app version="1" id="settings" category="system" summary="Look, pixels and desktop behavior" title="Settings" sprite="settings" tint="#6b6a86" width="220" height="204" min-width="146" min-height="120">
+  <state><signal name="section" value="look"/></state>
+  <view>
+    <column padding="5" gap="4">
+      <tabs value="{section}" grow="1">
+        <tab name="look" title="Look">
+          <scroll grow="1">
+            <column padding="3" gap="5">
+              <label text="Theme" bold="true"/>
+              <select value="{os.theme}" options="{os.themes}"/>
+              <label text="Pixel size" bold="true"/>
+              <select value="{os.pixel}" options="{os.pixels}"/>
+              <label text="{os.screen}" color="dim" wrap="true"/>
+              <check text="Smooth pixels" value="{os.smooth}"/>
+              <check text="CRT scanlines" value="{os.scanlines}"/>
+              <check text="Animations" value="{os.motion}"/>
+              <check text="Sounds" value="{os.sound}"/>
+            </column>
+          </scroll>
+        </tab>
+        <tab name="desktop" title="Desktop">
+          <scroll grow="1">
+            <column padding="3" gap="4">
+              <check text="Taskbar" value="{os.taskbar}"/>
+              <check text="Panning" value="{os.panning}"/>
+              <check text="Mini-map" value="{os.minimap}"/>
+              <check text="Edge snapping" value="{os.snap}"/>
+              <check text="Magnets" value="{os.magnets}"/>
+              <check text="Icon labels" value="{os.labels}"/>
+              <check text="Icon grid" value="{os.grid}"/>
+              <button text="Gather windows" action="arrange:gather"/>
+              <button text="Desktop overview" action="overview"/>
+            </column>
+          </scroll>
+        </tab>
+        <tab name="input" title="Input">
+          <scroll grow="1">
+            <column padding="3" gap="5">
+              <check text="On-screen keyboard" value="{os.keys}"/>
+              <label text="Tab moves between controls." wrap="true"/>
+              <label text="Ctrl/Cmd+S saves. Shift+Ctrl/Cmd+S saves a copy." wrap="true"/>
+              <label text="Ctrl/Cmd+O opens a document. Ctrl/Cmd+N starts a new one." wrap="true"/>
+              <label text="Pan the desktop with the middle mouse button or the taskbar pan control." wrap="true"/>
+            </column>
+          </scroll>
+        </tab>
+      </tabs>
+      <row gap="3" wrap="true">
+        <button text="Export settings" action="save-settings"/>
+        <button text="Import" action="load-settings"/>
+      </row>
+    </column>
+  </view>
+</app>

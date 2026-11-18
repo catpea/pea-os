@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app version="1" id="notepad" category="create" summary="Plain text with find" title="Notepad" sprite="notepad" tint="#b5e35a" width="300" height="205" min-width="240" min-height="150">
+  <state>
+    <signal name="content" value=""/>
+    <signal name="find" value=""/>
+    <signal name="find-open" type="boolean" value="false"/>
+    <signal name="match-case" type="boolean" value="false"/>
+    <signal name="find-result" value=""/>
+    <signal name="stats" value="Ln 1, Col 1 · 0 chars"/>
+    <signal name="file-name" value="Untitled"/>
+    <signal name="file-status" value="Opening…"/>
+    <signal name="can-undo" type="boolean" value="false"/>
+    <signal name="can-redo" type="boolean" value="false"/>
+  </state>
+  <view>
+    <scroll>
+    <column id="body" padding="4" gap="4">
+      <row wrap="true" gap="3" align="center">
+        <button text="New" action="file-new"/>
+        <button text="Open" action="file-open"/>
+        <button text="Save" action="file-save"/>
+        <spacer/>
+        <button text="Undo" action="undo" enabled="{can-undo}"/>
+        <button text="Redo" action="redo" enabled="{can-redo}"/>
+        <button text="Find" action="find"/>
+      </row>
+      <column id="findBar" visible="{find-open}" gap="3">
+        <row wrap="true" gap="3" align="center">
+          <field id="findText" value="{find}" placeholder="Find text" grow="1"/>
+          <button text="Prev" action="find-previous"/>
+          <button text="Next" action="find-next"/>
+        </row>
+        <row wrap="true" gap="4" align="center">
+          <check text="Match case" value="{match-case}"/>
+          <label text="{find-result}" color="dim"/>
+        </row>
+      </column>
+      <textarea id="editor" value="{content}" placeholder="Write something…" grow="1" maxlength="2000000" label="Document text"/>
+      <row wrap="true" gap="4" align="center">
+        <label text="{file-status}" color="dim"/>
+        <spacer/>
+        <label text="{stats}" color="dim"/>
+      </row>
+    </column>
+    </scroll>
+  </view>
+</app>

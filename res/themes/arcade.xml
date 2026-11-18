@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme version="1" id="arcade" name="Arcade Sunset" wallpaper="sunset" radius="2" title="bands">
+  <color role="ink" value="#f6e6ff"/>
+  <color role="paper" value="#1d1640"/>
+  <color role="panel" value="#3a2c78"/>
+  <color role="field" value="#120d2b"/>
+  <color role="accent" value="#ff4fa3"/>
+  <color role="accent-ink" value="#1d1640"/>
+  <color role="title" value="#63d2f0"/>
+  <color role="title-ink" value="#1d1640"/>
+  <color role="bar" value="#120d2b"/>
+  <color role="bar-ink" value="#63d2f0"/>
+  <color role="dim" value="#9a8bd0"/>
+  <color role="shadow" value="#00000070"/>
+  <color role="label" value="#f6e6ff"/>
+  <color role="label-edge" value="#120d2b"/>
+  <color role="wall-a" value="#120d2b"/>
+  <color role="wall-b" value="#4b1f86"/>
+  <color role="wall-c" value="#c2318f"/>
+  <color role="wall-d" value="#ff9a3d"/>
+  <color role="wall-sun" value="#ffe066"/>
+  <color role="wall-grid" value="#ff4fa3"/>
+  <color role="wall-far" value="#1d1640"/>
+  <color role="wall-near" value="#120d2b"/>
+  <color role="wall-star" value="#ffffff"/>
+</theme>

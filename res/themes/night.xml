@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme version="1" id="night" name="Midnight Pod" wallpaper="night" radius="3" title="stripes">
+  <color role="ink" value="#0a0f1e"/>
+  <color role="text" value="#e6edff"/>
+  <color role="paper" value="#27335a"/>
+  <color role="panel" value="#3a4a7c"/>
+  <color role="field" value="#18203c"/>
+  <color role="accent" value="#7fe07a"/>
+  <color role="accent-ink" value="#0a0f1e"/>
+  <color role="title" value="#3a4a7c"/>
+  <color role="title-ink" value="#b5e35a"/>
+  <color role="bar" value="#131a30"/>
+  <color role="bar-ink" value="#b5e35a"/>
+  <color role="dim" value="#8f9bc4"/>
+  <color role="shadow" value="#00000066"/>
+  <color role="label" value="#e6edff"/>
+  <color role="wall-a" value="#060a18"/>
+  <color role="wall-b" value="#121d44"/>
+  <color role="wall-c" value="#2a3a78"/>
+  <color role="wall-far" value="#17264a"/>
+  <color role="wall-near" value="#0c1428"/>
+  <color role="wall-sun" value="#f6f1c9"/>
+  <color role="wall-star" value="#ffffff"/>
+</theme>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A screen-saver scene: the desk flies on through the stars, faster than light. -->
+<theme version="1" id="warp" name="Hyperspace" wallpaper="warp" radius="1" title="solid">
+  <color role="ink" value="#000000"/>
+  <color role="text" value="#d8f6ff"/>
+  <color role="paper" value="#0b0f1a"/>
+  <color role="panel" value="#1b2438"/>
+  <color role="field" value="#05070d"/>
+  <color role="accent" value="#42e8ff"/>
+  <color role="accent-ink" value="#000000"/>
+  <color role="title" value="#42e8ff"/>
+  <color role="title-ink" value="#000000"/>
+  <color role="bar" value="#000000"/>
+  <color role="bar-ink" value="#42e8ff"/>
+  <color role="dim" value="#6f86a8"/>
+  <color role="shadow" value="#00000080"/>
+  <color role="label" value="#d8f6ff"/>
+  <color role="label-edge" value="#000000"/>
+  <color role="wall-a" value="#000000"/>
+  <color role="wall-b" value="#070b1c"/>
+  <color role="wall-c" value="#24124a"/>
+  <color role="wall-far" value="#3a4766"/>
+  <color role="wall-sun" value="#9fe8ff"/>
+  <color role="wall-star" value="#ffffff"/>
+</theme>

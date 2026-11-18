@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Four shades of green, as on a handheld: the palette locks every pixel on screen. -->
+<theme version="1" id="pocket" name="Pocket Pea" wallpaper="dither" radius="1" title="solid"
+       palette="#0f380f #306230 #8bac0f #9bbc0f">
+  <color role="ink" value="#0f380f"/>
+  <color role="paper" value="#9bbc0f"/>
+  <color role="panel" value="#8bac0f"/>
+  <color role="accent" value="#306230"/>
+  <color role="accent-ink" value="#9bbc0f"/>
+  <color role="title" value="#8bac0f"/>
+  <color role="dim" value="#306230"/>
+  <color role="shadow" value="#0f380f"/>
+  <color role="wall-a" value="#8bac0f"/>
+  <color role="wall-b" value="#306230"/>
+</theme>

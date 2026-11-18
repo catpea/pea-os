@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The example database Pea Records opens with: a gardener's seed catalogue. -->
+<database version="1" name="Seed Catalogue">
+  <field name="Name" type="text"/>
+  <field name="Kind" type="choice" options="Vegetable,Herb,Flower,Fruit"/>
+  <field name="Days to harvest" type="number"/>
+  <field name="Sown" type="date"/>
+  <field name="Organic" type="check"/>
+  <field name="Notes" type="note"/>
+  <record id="r1">
+    <value field="Name">Snap pea</value>
+    <value field="Kind">Vegetable</value>
+    <value field="Days to harvest">62</value>
+    <value field="Sown">2026-03-14</value>
+    <value field="Organic">true</value>
+    <value field="Notes">Needs a trellis. Pick often and it keeps going.</value>
+  </record>
+  <record id="r2">
+    <value field="Name">Sweet basil</value>
+    <value field="Kind">Herb</value>
+    <value field="Days to harvest">30</value>
+    <value field="Sown">2026-04-02</value>
+    <value field="Organic">true</value>
+    <value field="Notes">Pinch the flowers off.</value>
+  </record>
+  <record id="r3">
+    <value field="Name">Cherry tomato</value>
+    <value field="Kind">Fruit</value>
+    <value field="Days to harvest">65</value>
+    <value field="Sown">2026-03-20</value>
+    <value field="Organic">false</value>
+    <value field="Notes">Sunniest spot by the wall.</value>
+  </record>
+  <record id="r4">
+    <value field="Name">Sunflower</value>
+    <value field="Kind">Flower</value>
+    <value field="Days to harvest">80</value>
+    <value field="Sown">2026-04-25</value>
+    <value field="Organic">true</value>
+    <value field="Notes">Leave the heads for the birds in autumn.</value>
+  </record>
+  <record id="r5">
+    <value field="Name">Radish</value>
+    <value field="Kind">Vegetable</value>
+    <value field="Days to harvest">25</value>
+    <value field="Sown">2026-04-10</value>
+    <value field="Organic">false</value>
+    <value field="Notes">Sow a short row every two weeks.</value>
+  </record>
+  <record id="r6">
+    <value field="Name">Strawberry</value>
+    <value field="Kind">Fruit</value>
+    <value field="Days to harvest">90</value>
+    <value field="Sown">2026-02-28</value>
+    <value field="Organic">true</value>
+    <value field="Notes">Straw underneath keeps the fruit clean.</value>
+  </record>
+  <record id="r7">
+    <value field="Name">Chives</value>
+    <value field="Kind">Herb</value>
+    <value field="Days to harvest">60</value>
+    <value field="Sown">2026-03-30</value>
+    <value field="Organic">true</value>
+    <value field="Notes">Purple flowers are edible.</value>
+  </record>
+  <record id="r8">
+    <value field="Name">Marigold</value>
+    <value field="Kind">Flower</value>
+    <value field="Days to harvest">50</value>
+    <value field="Sown">2026-04-18</value>
+    <value field="Organic">false</value>
+    <value field="Notes">Plant between the tomatoes.</value>
+  </record>
+  <record id="r9">
+    <value field="Name">Butternut squash</value>
+    <value field="Kind">Vegetable</value>
+    <value field="Days to harvest">110</value>
+    <value field="Sown">2026-05-06</value>
+    <value field="Organic">true</value>
+    <value field="Notes">Give it room to wander.</value>
+  </record>
+  <record id="r10">
+    <value field="Name">Mint</value>
+    <value field="Kind">Herb</value>
+    <value field="Days to harvest">40</value>
+    <value field="Sown">2026-03-08</value>
+    <value field="Organic">false</value>
+    <value field="Notes">In a pot, or it takes the whole bed.</value>
+  </record>
+</database>

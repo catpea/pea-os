@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app version="1" id="flow" category="create" summary="Wire nodes together and watch objects travel" title="Pea Flow" sprite="flow" tint="#3f7fe0" width="452" height="256" min-width="270" min-height="180">
+  <state>
+    <signal name="run-label" value="Run"/>
+    <signal name="speed" type="number" value="3"/>
+    <signal name="node-type" value="clock"/>
+    <signal name="has-selection" type="boolean" value="false"/>
+    <signal name="selection-title" value="Nothing selected"/>
+    <signal name="status" value=""/>
+    <signal name="split" type="number" value="0.2"/>
+    <signal name="file-name" value="Untitled"/>
+    <signal name="file-status" value="Opening…"/>
+    <signal name="can-undo" type="boolean" value="false"/>
+    <signal name="can-redo" type="boolean" value="false"/>
+    <signal name="zoom-label" value="100%"/>
+  </state>
+  <view>
+    <column padding="4" gap="4">
+      <row wrap="true" gap="3" align="center">
+        <button text="{run-label}" action="run" kind="accent" width="44"/>
+        <button text="Reset" action="reset"/>
+        <label text="Speed" color="dim"/>
+        <slider value="{speed}" min="1" max="8" width="52" label="Speed"/>
+        <spacer/>
+        <button text="-" action="zoom-out" width="17" label="Zoom out"/>
+        <button text="{zoom-label}" action="zoom-reset" width="36" label="Actual size"/>
+        <button text="+" action="zoom-in" width="17" label="Zoom in"/>
+        <button text="Undo" action="undo" enabled="{can-undo}"/>
+        <button text="Delete" action="delete" enabled="{has-selection}"/>
+      </row>
+      <split direction="horizontal" ratio="{split}" min="54" grow="1">
+        <column gap="3">
+          <list id="palette" value="{node-type}" activate="add-node" drag="node-type" grow="1" label="Node types: drag one onto the board"/>
+          <button text="Add node" action="add-node"/>
+        </column>
+        <column gap="3">
+          <canvas id="board" grow="1" label="Flow board: drag from an output port to an input port to connect"/>
+          <row id="inspector" gap="3" wrap="true" align="center">
+            <label text="{selection-title}" bold="true"/>
+          </row>
+        </column>
+      </split>
+      <row gap="4" align="center">
+        <label text="{status}" color="dim" grow="1"/>
+        <label text="{file-status}" color="dim"/>
+      </row>
+    </column>
+  </view>
+</app>

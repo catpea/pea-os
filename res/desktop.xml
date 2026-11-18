@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  The Pea OS shell: the menu bar, the taskbar's launcher, the context menus
+  and the icons on the desk.
+
+  Entries that expand by themselves:
+    <apps/>      one item per installed app
+    <themes/>    one item per theme
+    <desks/>     one item per virtual desktop
+    <send/>      "Move to desktop N" for the window the menu is about
+    <tools/>     one item per tool window of that window's app, ticked while it shows
+    <magnify/>   sizes 1x to 4x; for="window", "menubar", "taskbar" or "icons"
+
+  An <item> may carry icon="glyph-..." (a 7x7 shape drawn in the text color)
+  or icon="mini-..." (a 9x9 color picture), and shortcut="Ctrl+S" to show
+  the key that does the same thing.
+
+  check="os.signal" ticks an item while the signal is true,
+  check="os.signal=value" while it equals the value, and
+  check="window.max", "window.min", "window.shade", "window.top" or
+  "window.all" follows the window.
+
+  A <context> opens on a right click or a long press. In it, "window:..."
+  actions and <magnify/> are about the thing that was pressed; in the menu
+  bar they are about the active window.
+-->
+<desktop version="2">
+  <menubar>
+    <menu title="Pea" sprite="pea-9">
+      <item text="Start" action="start" icon="pea-9" shortcut="Ctrl+Esc"/>
+      <item text="About Pea OS" action="launch:about" icon="glyph-info"/>
+      <item text="Settings" action="launch:settings" icon="glyph-settings"/>
+      <separator/>
+      <item text="Full screen" action="fullscreen" icon="glyph-fullscreen"/>
+      <separator/>
+      <item text="Save settings.xml" action="save-settings" icon="glyph-export"/>
+      <item text="Load settings.xml" action="load-settings" icon="glyph-import"/>
+    </menu>
+    <menu title="File">
+      <item text="New" action="file:new" icon="glyph-new" shortcut="Ctrl+N"/>
+      <item text="Open…" action="file:open" icon="glyph-open" shortcut="Ctrl+O"/>
+      <separator/>
+      <item text="Save" action="file:save" icon="glyph-save" shortcut="Ctrl+S"/>
+      <item text="Save as…" action="file:save-as" icon="glyph-pencil" shortcut="Ctrl+Shift+S"/>
+      <separator/>
+      <item text="Import from file…" action="file:import" icon="glyph-import"/>
+      <item text="Export a copy…" action="file:export" icon="glyph-export"/>
+    </menu>
+    <menu title="Edit">
+      <item text="Undo" action="file:undo" icon="glyph-undo" shortcut="Ctrl+Z"/>
+      <item text="Redo" action="file:redo" icon="glyph-redo" shortcut="Ctrl+Y"/>
+    </menu>
+    <menu title="Apps">
+      <item text="Search apps and documents…" action="start" icon="glyph-search" shortcut="Ctrl+Esc"/>
+      <separator/>
+      <apps/>
+    </menu>
+    <menu title="Window">
+      <item text="Minimize" action="window:minimize" icon="glyph-minimize"/>
+      <item text="Maximize" action="window:maximize" check="window.max" icon="glyph-maximize"/>
+      <item text="Roll up" action="window:shade" check="window.shade" icon="glyph-shade"/>
+      <item text="Tile left" action="window:left" icon="glyph-tile-left"/>
+      <item text="Tile right" action="window:right" icon="glyph-tile-right"/>
+      <tools/>
+      <separator/>
+      <item text="Always on top" action="window:top" check="window.top" icon="glyph-top"/>
+      <item text="Always on visible workspace" action="window:all" check="window.all" icon="glyph-everywhere"/>
+      <separator/>
+      <magnify for="window"/>
+      <separator/>
+      <send/>
+      <separator/>
+      <item text="Switch windows…" action="switcher" icon="glyph-overview" shortcut="Alt+Tab"/>
+      <item text="Close" action="window:close" icon="glyph-close"/>
+    </menu>
+    <menu title="Theme">
+      <themes/>
+    </menu>
+    <menu title="Pixels">
+      <item text="Auto" action="set:os.pixel=auto" check="os.pixel=auto"/>
+      <item text="1 · fine" action="set:os.pixel=1" check="os.pixel=1"/>
+      <item text="2" action="set:os.pixel=2" check="os.pixel=2"/>
+      <item text="3" action="set:os.pixel=3" check="os.pixel=3"/>
+      <item text="4" action="set:os.pixel=4" check="os.pixel=4"/>
+      <item text="5" action="set:os.pixel=5" check="os.pixel=5"/>
+      <item text="6 · chunky" action="set:os.pixel=6" check="os.pixel=6"/>
+      <separator/>
+      <item text="Smooth pixels" action="toggle:os.smooth" check="os.smooth" icon="glyph-smooth"/>
+      <item text="CRT scanlines" action="toggle:os.scanlines" check="os.scanlines" icon="glyph-scanlines"/>
+      <item text="Animations" action="toggle:os.motion" check="os.motion" icon="glyph-motion"/>
+    </menu>
+    <menu title="Desk">
+      <item text="Overview" action="overview" icon="glyph-overview"/>
+      <desks/>
+      <separator/>
+      <item text="New sticky note" action="new-note" icon="glyph-note"/>
+      <item text="Show sticky notes" action="notes:show" icon="glyph-eye"/>
+      <item text="Minimap" action="toggle:os.minimap" check="os.minimap" icon="glyph-map"/>
+      <separator/>
+      <item text="Gather windows" action="arrange:gather" icon="glyph-gather"/>
+      <item text="Cascade windows" action="arrange:cascade" icon="glyph-cascade"/>
+      <item text="Tidy icons" action="arrange:icons" icon="glyph-tidy"/>
+      <item text="Go home" action="arrange:home" icon="glyph-home"/>
+      <item text="Show desktop" action="show-desktop" icon="glyph-show-desktop"/>
+      <separator/>
+      <item text="Pan mode" action="toggle:os.pan-mode" check="os.pan-mode" icon="glyph-pan"/>
+      <item text="Taskbar" action="toggle:os.taskbar" check="os.taskbar" icon="glyph-taskbar"/>
+      <item text="Keyboard" action="toggle:os.keys" check="os.keys" icon="glyph-keyboard"/>
+    </menu>
+  </menubar>
+
+  <launcher>
+    <apps/>
+    <separator/>
+    <item text="Show desktop" action="show-desktop" icon="glyph-show-desktop"/>
+  </launcher>
+
+  <context for="window">
+    <magnify/>
+    <separator/>
+    <item text="Minimize" action="window:minimize" icon="glyph-minimize"/>
+    <item text="Maximize" action="window:maximize" check="window.max" icon="glyph-maximize"/>
+    <item text="Roll up" action="window:shade" check="window.shade" icon="glyph-shade"/>
+    <item text="Tile left" action="window:left" icon="glyph-tile-left"/>
+    <item text="Tile right" action="window:right" icon="glyph-tile-right"/>
+    <tools/>
+    <separator/>
+    <item text="Always on top" action="window:top" check="window.top" icon="glyph-top"/>
+    <item text="Always on visible workspace" action="window:all" check="window.all" icon="glyph-everywhere"/>
+    <separator/>
+    <send/>
+    <separator/>
+    <item text="Close" action="window:close" icon="glyph-close"/>
+  </context>
+
+  <context for="tool">
+    <magnify/>
+    <separator/>
+    <item text="Close" action="window:close" icon="glyph-close"/>
+  </context>
+
+  <context for="task">
+    <item text="Bring here" action="window:here" icon="glyph-here"/>
+    <item text="Minimize" action="window:minimize" icon="glyph-minimize"/>
+    <item text="Maximize" action="window:maximize" check="window.max" icon="glyph-maximize"/>
+    <separator/>
+    <magnify/>
+    <separator/>
+    <send/>
+    <separator/>
+    <item text="Close" action="window:close" icon="glyph-close"/>
+  </context>
+
+  <context for="desktop">
+    <item text="Start" action="start" icon="pea-9" shortcut="Ctrl+Esc"/>
+    <item text="New sticky note" action="new-note" icon="glyph-note"/>
+    <item text="Show sticky notes" action="notes:show" icon="glyph-eye"/>
+    <item text="Restore deleted note" action="notes:restore" icon="glyph-undo"/>
+    <separator/>
+    <magnify label="Icons"/>
+    <item text="Icon labels" action="toggle:os.labels" check="os.labels" icon="glyph-labels"/>
+    <item text="Icon grid" action="toggle:os.grid" check="os.grid" icon="glyph-grid"/>
+    <item text="Tidy icons" action="arrange:icons" icon="glyph-tidy"/>
+    <separator/>
+    <item text="Gather windows" action="arrange:gather" icon="glyph-gather"/>
+    <item text="Cascade windows" action="arrange:cascade" icon="glyph-cascade"/>
+    <item text="Go home" action="arrange:home" icon="glyph-home"/>
+    <item text="Pan mode" action="toggle:os.pan-mode" check="os.pan-mode" icon="glyph-pan"/>
+    <item text="Minimap" action="toggle:os.minimap" check="os.minimap" icon="glyph-map"/>
+    <item text="Overview" action="overview" icon="glyph-overview"/>
+    <separator/>
+    <item text="Settings" action="launch:settings" icon="glyph-settings"/>
+  </context>
+
+  <context for="icon">
+    <item text="Open" action="window:open" icon="glyph-open"/>
+    <separator/>
+    <magnify label="Icons"/>
+    <item text="Tidy icons" action="arrange:icons" icon="glyph-tidy"/>
+  </context>
+
+  <context for="menubar">
+    <magnify label="Menus"/>
+  </context>
+
+  <context for="taskbar">
+    <item text="Start" action="start" icon="pea-9" shortcut="Ctrl+Esc"/>
+    <item text="Overview" action="overview" icon="glyph-overview"/>
+    <separator/>
+    <magnify label="Taskbar"/>
+    <separator/>
+    <item text="Show desktop" action="show-desktop" icon="glyph-show-desktop"/>
+    <item text="Gather windows" action="arrange:gather" icon="glyph-gather"/>
+    <item text="Cascade windows" action="arrange:cascade" icon="glyph-cascade"/>
+    <separator/>
+    <item text="Keyboard" action="toggle:os.keys" check="os.keys" icon="glyph-keyboard"/>
+    <item text="Taskbar" action="toggle:os.taskbar" check="os.taskbar" icon="glyph-taskbar"/>
+  </context>
+
+  <context for="start">
+    <magnify label="Start menu"/>
+    <separator/>
+    <item text="Overview" action="overview" icon="glyph-overview"/>
+    <item text="New sticky note" action="new-note" icon="glyph-note"/>
+    <item text="Show desktop" action="show-desktop" icon="glyph-show-desktop"/>
+    <separator/>
+    <item text="Settings" action="launch:settings" icon="glyph-settings"/>
+  </context>
+
+  <context for="minimap">
+    <magnify label="Map"/>
+    <separator/>
+    <item text="Overview" action="overview" icon="glyph-overview"/>
+    <item text="Go home" action="arrange:home" icon="glyph-home"/>
+    <item text="Gather windows" action="arrange:gather" icon="glyph-gather"/>
+    <separator/>
+    <item text="Always on top" action="toggle:os.minimap-top" check="os.minimap-top" icon="glyph-top"/>
+    <item text="Hide map" action="toggle:os.minimap" icon="glyph-close"/>
+  </context>
+
+  <context for="overview">
+    <magnify label="Overview"/>
+  </context>
+
+  <icons>
+    <icon app="paint"/>
+    <icon app="cards"/>
+    <icon app="catch"/>
+    <icon app="pea-timer"/>
+    <icon app="calc"/>
+    <icon app="settings"/>
+    <icon app="about"/>
+    <icon app="notepad"/>
+    <icon app="notes"/>
+    <icon app="documents"/>
+    <icon app="records"/>
+    <icon app="feeds"/>
+    <icon app="flow"/>
+    <icon app="agents"/>
+    <icon app="chat"/>
+    <icon app="software"/>
+    <icon app="regex"/>
+    <icon app="json"/>
+    <icon app="diff"/>
+    <icon app="http"/>
+    <icon app="codec"/>
+    <icon app="music"/>
+    <icon app="video"/>
+  </icons>
+</desktop>

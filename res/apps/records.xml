@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app version="1" id="records" category="organize" summary="A card file of records: browse, find and sort" title="Pea Records" sprite="records" tint="#63d2f0" width="344" height="226" min-width="262" min-height="178">
+  <state>
+    <signal name="mode" value="browse"/>
+    <signal name="browsing" type="boolean" value="true"/>
+    <signal name="listing" type="boolean" value="false"/>
+    <signal name="finding" type="boolean" value="false"/>
+    <signal name="defining" type="boolean" value="false"/>
+    <signal name="db-name" value=""/>
+    <signal name="position" value=""/>
+    <signal name="counts" value=""/>
+    <signal name="sorted" value=""/>
+    <signal name="status" value=""/>
+    <signal name="has-record" type="boolean" value="false"/>
+    <signal name="field-selected" value=""/>
+    <signal name="field-name" value=""/>
+    <signal name="field-type" value="text"/>
+    <signal name="field-options" value=""/>
+    <signal name="field-is-choice" type="boolean" value="false"/>
+    <signal name="has-field" type="boolean" value="false"/>
+    <signal name="file-name" value="Untitled"/>
+    <signal name="file-status" value="Opening…"/>
+    <signal name="can-undo" type="boolean" value="false"/>
+    <signal name="can-redo" type="boolean" value="false"/>
+  </state>
+  <view>
+    <row padding="4" gap="4">
+      <panel kind="card" width="66" padding="3" gap="3">
+        <label text="{db-name}" bold="true" wrap="true"/>
+        <canvas id="book" height="56" label="Record book: the upper page goes back, the lower page goes forward"/>
+        <label text="{position}" bold="true" align="center"/>
+        <label text="{counts}" color="dim" wrap="true"/>
+        <label text="{sorted}" color="dim" wrap="true"/>
+        <spacer/>
+        <label text="{file-status}" color="dim" wrap="true"/>
+      </panel>
+      <column grow="1" gap="4">
+        <row gap="3" align="center">
+          <choice value="{mode}">
+            <option value="browse" text="Browse"/>
+            <option value="list" text="List"/>
+            <option value="find" text="Find"/>
+            <option value="fields" text="Fields"/>
+          </choice>
+        </row>
+        <row wrap="true" gap="3" align="center" visible="{browsing}">
+          <button text="New record" action="record-new" kind="accent"/>
+          <button text="Duplicate" action="record-duplicate" enabled="{has-record}"/>
+          <button text="Sort…" action="sort"/>
+          <button text="Show all" action="show-all"/>
+          <spacer/>
+          <button text="Delete" action="record-delete" enabled="{has-record}"/>
+        </row>
+        <row wrap="true" gap="3" align="center" visible="{listing}">
+          <button text="New record" action="record-new" kind="accent"/>
+          <button text="Open" action="record-open" enabled="{has-record}"/>
+          <button text="Show all" action="show-all"/>
+          <spacer/>
+          <button text="Delete" action="record-delete" enabled="{has-record}"/>
+        </row>
+        <scroll id="formScroll" grow="1" visible="{browsing}">
+          <column id="form" gap="3" padding="2"/>
+        </scroll>
+        <canvas id="table" grow="1" visible="{listing}" label="Records as a table: tap a heading to sort"/>
+        <column grow="1" gap="3" visible="{finding}">
+          <label text="Type what to look for. Numbers and dates take &gt;, &lt; and 1..9." color="dim" wrap="true"/>
+          <scroll grow="1">
+            <column id="findForm" gap="3" padding="2"/>
+          </scroll>
+          <row gap="3" wrap="true">
+            <button text="Find" action="find-run" kind="accent"/>
+            <button text="Clear" action="find-clear"/>
+            <button text="Show all" action="show-all"/>
+          </row>
+        </column>
+        <row grow="1" gap="4" visible="{defining}">
+          <list id="fieldList" value="{field-selected}" grow="1" label="Fields" empty="No fields yet"/>
+          <column width="118" gap="3">
+            <field value="{field-name}" placeholder="Field name" maxlength="40" label="Field name"/>
+            <select value="{field-type}" width="118">
+              <option value="text" text="Text"/>
+              <option value="number" text="Number"/>
+              <option value="date" text="Date"/>
+              <option value="check" text="Yes / no"/>
+              <option value="choice" text="Choice"/>
+              <option value="note" text="Long text"/>
+            </select>
+            <field value="{field-options}" placeholder="Choices, a,b,c" visible="{field-is-choice}" label="Choices"/>
+            <row gap="3" wrap="true">
+              <button text="Add" action="field-add" kind="accent"/>
+              <button text="Change" action="field-change" enabled="{has-field}"/>
+            </row>
+            <row gap="3" wrap="true">
+              <button text="Up" action="field-up" enabled="{has-field}"/>
+              <button text="Down" action="field-down" enabled="{has-field}"/>
+              <button text="Delete" action="field-delete" enabled="{has-field}"/>
+            </row>
+          </column>
+        </row>
+        <label text="{status}" color="dim" height="10"/>
+      </column>
+    </row>
+  </view>
+</app>

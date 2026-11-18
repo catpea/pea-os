@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Pea Timer: a pocket interval timer with a hero you design yourself.
+  The hero is drawn by src/fit/hero-doll.js; timing is src/fit/interval-timer.js.
+  The plan tool sets your own durations; they are the "Mine" preset.
+-->
+<app version="1" id="pea-timer" category="play" summary="Interval workouts with your own pixel hero" title="Pea Timer" sprite="pea-timer" tint="#ff9a3d" width="176" height="158" min-width="150" min-height="136">
+  <state>
+    <signal name="phase" value="Ready"/>
+    <signal name="move" value=""/>
+    <signal name="round" value="Round 1/8"/>
+    <signal name="go" value="Start"/>
+    <signal name="preset" value="classic"/>
+    <signal name="editable" type="boolean" value="true"/>
+    <signal name="planWarmup" value=""/>
+    <signal name="planWorkout" value=""/>
+    <signal name="planRest" value=""/>
+    <signal name="planCooldown" value=""/>
+    <signal name="planRounds" value=""/>
+    <signal name="planTotal" value=""/>
+    <signal name="level" value="Level 1"/>
+    <signal name="unlock" value=""/>
+    <signal name="lookName" value=""/>
+    <signal name="lookSkin" value=""/>
+    <signal name="lookBuild" value=""/>
+    <signal name="lookHair" value=""/>
+    <signal name="lookHairColor" value=""/>
+    <signal name="lookTop" value=""/>
+    <signal name="lookTopColor" value=""/>
+    <signal name="lookBottoms" value=""/>
+    <signal name="lookBottomColor" value=""/>
+    <signal name="lookShoes" value=""/>
+    <signal name="lookAccessory" value=""/>
+    <signal name="lookAccent" value=""/>
+  </state>
+  <view>
+    <column>
+      <row padding="3 6" gap="4">
+        <label text="{phase}"/>
+        <label text="{move}" color="dim"/>
+        <spacer/>
+        <label text="{round}" color="dim"/>
+      </row>
+      <canvas id="stage" grow="1"/>
+      <row padding="3 4" gap="3">
+        <button text="{go}" action="go" kind="accent" width="40"/>
+        <button text="Skip" action="skip"/>
+        <button text="Reset" action="reset"/>
+        <spacer/>
+        <button text="Hero" action="tool:pea-timer.hero" tooltip="Design your hero"/>
+      </row>
+      <row padding="0 4 3 4" gap="3">
+        <button text="Plan" action="tool:pea-timer.plan" tooltip="Set your own times"/>
+        <choice value="{preset}" enabled="{editable}">
+          <option value="quick" text="Quick"/>
+          <option value="classic" text="Classic"/>
+          <option value="long" text="Long"/>
+          <option value="mine" text="Mine"/>
+        </choice>
+      </row>
+    </column>
+  </view>
+  <tool id="plan" title="Plan" width="132" height="126" min-width="120" min-height="70" open="false">
+    <view>
+      <column padding="4" gap="3">
+        <scroll grow="1">
+          <column gap="1">
+            <row gap="2">
+              <label text="Warm up" width="42" color="dim"/>
+              <button text="&lt;" action="less:warmup" width="12" enabled="{editable}"/>
+              <label text="{planWarmup}" grow="1" align="center"/>
+              <button text="&gt;" action="more:warmup" width="12" enabled="{editable}"/>
+            </row>
+            <row gap="2">
+              <label text="Work" width="42" color="dim"/>
+              <button text="&lt;" action="less:workout" width="12" enabled="{editable}"/>
+              <label text="{planWorkout}" grow="1" align="center"/>
+              <button text="&gt;" action="more:workout" width="12" enabled="{editable}"/>
+            </row>
+            <row gap="2">
+              <label text="Rest" width="42" color="dim"/>
+              <button text="&lt;" action="less:rest" width="12" enabled="{editable}"/>
+              <label text="{planRest}" grow="1" align="center"/>
+              <button text="&gt;" action="more:rest" width="12" enabled="{editable}"/>
+            </row>
+            <row gap="2">
+              <label text="Cool down" width="42" color="dim"/>
+              <button text="&lt;" action="less:cooldown" width="12" enabled="{editable}"/>
+              <label text="{planCooldown}" grow="1" align="center"/>
+              <button text="&gt;" action="more:cooldown" width="12" enabled="{editable}"/>
+            </row>
+            <row gap="2">
+              <label text="Rounds" width="42" color="dim"/>
+              <button text="&lt;" action="less:rounds" width="12" enabled="{editable}"/>
+              <label text="{planRounds}" grow="1" align="center"/>
+              <button text="&gt;" action="more:rounds" width="12" enabled="{editable}"/>
+            </row>
+          </column>
+        </scroll>
+        <label text="{planTotal}" color="dim" wrap="true"/>
+        <check text="Sounds" value="{os.sound}"/>
+      </column>
+    </view>
+  </tool>
+  <tool id="hero" title="Hero" width="150" height="190" min-width="130" min-height="110" open="false">
+    <view>
+      <column padding="4" gap="3">
+        <row gap="4">
+          <canvas id="preview" width="44" height="56"/>
+          <column gap="3" grow="1">
+            <label text="{level}" bold="true"/>
+            <label text="{unlock}" color="dim" wrap="true"/>
+            <button text="Random" action="random"/>
+          </column>
+        </row>
+        <scroll grow="1">
+          <column gap="1">
+            <row gap="2">
+              <label text="Name" width="42" color="dim"/>
+              <button text="&lt;" action="prev:name" width="12"/>
+              <label text="{lookName}" grow="1" align="center"/>
+              <button text="&gt;" action="next:name" width="12"/>
+            </row>
+            <row gap="2">
+              <label text="Skin" width="42" color="dim"/>
+              <button text="&lt;" action="prev:skin" width="12"/>
+              <label text="{lookSkin}" grow="1" align="center"/>
+              <button text="&gt;" action="next:skin" width="12"/>
+            </row>
+            <row gap="2">
+              <label text="Build" width="42" color="dim"/>
+              <button text="&lt;" action="prev:build" width="12"/>
+              <label text="{lookBuild}" grow="1" align="center"/>
+              <button text="&gt;" action="next:build" width="12"/>
+            </row>
+            <row gap="2">
+              <label text="Hair" width="42" color="dim"/>
+              <button text="&lt;" action="prev:hair" width="12"/>
+              <label text="{lookHair}" grow="1" align="center"/>
+              <button text="&gt;" action="next:hair" width="12"/>
+            </row>
+            <row gap="2">
+              <label text="Hair color" width="42" color="dim"/>
+              <button text="&lt;" action="prev:hairColor" width="12"/>
+              <label text="{lookHairColor}" grow="1" align="center"/>
+              <button text="&gt;" action="next:hairColor" width="12"/>
+            </row>
+            <row gap="2">
+              <label text="Top" width="42" color="dim"/>
+              <button text="&lt;" action="prev:top" width="12"/>
+              <label text="{lookTop}" grow="1" align="center"/>
+              <button text="&gt;" action="next:top" width="12"/>
+            </row>
+            <row gap="2">
+              <label text="Top color" width="42" color="dim"/>
+              <button text="&lt;" action="prev:topColor" width="12"/>
+              <label text="{lookTopColor}" grow="1" align="center"/>
+              <button text="&gt;" action="next:topColor" width="12"/>
+            </row>
+            <row gap="2">
+              <label text="Legs" width="42" color="dim"/>
+              <button text="&lt;" action="prev:bottoms" width="12"/>
+              <label text="{lookBottoms}" grow="1" align="center"/>
+              <button text="&gt;" action="next:bottoms" width="12"/>
+            </row>
+            <row gap="2">
+              <label text="Leg color" width="42" color="dim"/>
+              <button text="&lt;" action="prev:bottomColor" width="12"/>
+              <label text="{lookBottomColor}" grow="1" align="center"/>
+              <button text="&gt;" action="next:bottomColor" width="12"/>
+            </row>
+            <row gap="2">
+              <label text="Shoes" width="42" color="dim"/>
+              <button text="&lt;" action="prev:shoes" width="12"/>
+              <label text="{lookShoes}" grow="1" align="center"/>
+              <button text="&gt;" action="next:shoes" width="12"/>
+            </row>
+            <row gap="2">
+              <label text="Extra" width="42" color="dim"/>
+              <button text="&lt;" action="prev:accessory" width="12"/>
+              <label text="{lookAccessory}" grow="1" align="center"/>
+              <button text="&gt;" action="next:accessory" width="12"/>
+            </row>
+            <row gap="2">
+              <label text="Accent" width="42" color="dim"/>
+              <button text="&lt;" action="prev:accent" width="12"/>
+              <label text="{lookAccent}" grow="1" align="center"/>
+              <button text="&gt;" action="next:accent" width="12"/>
+            </row>
+          </column>
+        </scroll>
+      </column>
+    </view>
+  </tool>
+</app>

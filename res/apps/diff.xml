@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app version="1" id="diff" category="develop" summary="Compare two texts line by line" title="Text Diff" sprite="diff" tint="#46b04a" width="340" height="236" min-width="230" min-height="170">
+  <state>
+    <signal name="before" value="Sow the peas&#10;Water the basil&#10;Pick the beans&#10;Mend the fence&#10;Rest in the shade"/>
+    <signal name="after" value="Sow the peas&#10;Water the basil and mint&#10;Weed the beds&#10;Pick the beans&#10;Rest in the shade&#10;Watch the sun go down"/>
+    <signal name="ignore-space" type="boolean" value="false"/>
+    <signal name="split" type="number" value="0.42"/>
+    <signal name="status" value=""/>
+  </state>
+  <view>
+    <column padding="4" gap="3">
+      <row gap="3" align="center" wrap="true">
+        <button text="Swap" action="swap"/>
+        <check text="Ignore spaces" value="{ignore-space}"/>
+        <button text="To Notepad" action="to-notepad"/>
+        <spacer/>
+        <label text="{status}" color="dim"/>
+      </row>
+      <split direction="vertical" ratio="{split}" min="40" grow="1">
+        <split direction="horizontal" ratio="0.5" min="60">
+          <textarea value="{before}" wrap="false" maxlength="200000" label="Before"/>
+          <textarea value="{after}" wrap="false" maxlength="200000" label="After"/>
+        </split>
+        <canvas id="view" label="Differences: lines taken out and put in"/>
+      </split>
+    </column>
+  </view>
+</app>

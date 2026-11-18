@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme version="1" id="garden" name="Pea Garden" wallpaper="garden" radius="3" title="stripes">
+  <color role="ink" value="#22302a"/>
+  <color role="paper" value="#fbf7ea"/>
+  <color role="panel" value="#ece4c6"/>
+  <color role="field" value="#ffffff"/>
+  <color role="accent" value="#46b04a"/>
+  <color role="accent-ink" value="#fbf7ea"/>
+  <color role="title" value="#b5e35a"/>
+  <color role="dim" value="#8a8f78"/>
+  <color role="shadow" value="#00000055"/>
+  <color role="wall-a" value="#4a9df0"/>
+  <color role="wall-b" value="#8fd0f7"/>
+  <color role="wall-c" value="#d9f5e4"/>
+  <color role="wall-far" value="#7fcf5f"/>
+  <color role="wall-near" value="#46b04a"/>
+  <color role="wall-sun" value="#ffd75e"/>
+  <color role="wall-cloud" value="#ffffff"/>
+</theme>

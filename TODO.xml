@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="pea-os" release="0.5.0">
+  <intent>A colorful pixel-art graphical OS from one JavaScript codebase: browser canvas now, Android and iOS through NativeScript next.</intent>
+
+  <done>
+    <group name="Core">Glitch-free signals, combineLatest, batch, owned scopes, persistence; a strict DOM-free XML reader.</group>
+    <group name="Graphics">Software bitmaps with dithering, an XML pixel font, XML and procedural sprites, themes with palette locking, a Pixi stage with configurable pixel size, smoothing and scanlines.</group>
+    <group name="Interface">Text fields and text areas, lists and selects, clipped scrolling, split panes, tabs, wrapping toolbars, keyboard focus and modal dialogs; flex and grid layout, an XML view language with checked bindings and actions, whole-number zoom on any widget, context menus by right click and long press, hover cursors.</group>
+    <group name="Windows">Caption boxes, eight resize directions and a grow corner, minimize, maximize, restore, roll up, double tap to maximize, edge and corner snapping with previews, magnets with Alt to override, tool windows with owners that move with them during a drag and keep to their docked edge during a resize, always on top, always on the visible workspace.</group>
+    <group name="Desktop">Searchable Start with pinned apps and recent documents, menu bar, taskbar with overflow, mini-map, desktop overview, four virtual desktops with sliding switches, panning by middle button, Space or pan mode, draggable icons on an optional grid that stay on the screen while the desk pans, gather and cascade, an on-screen keyboard, zoom outlines, boot sequence, four animated wallpapers and five screen-saver scenes, compact mode for phones.</group>
+    <group name="Magnify">Per-window, menu bar, taskbar, icon, Start menu, map and overview magnification from 1x to 4x, and a size for each sticky note, remembered per pixel size.</group>
+    <group name="Settings">Every preference in local storage and in a settings.xml that can be saved, loaded and validated from the command line.</group>
+    <group name="Apps">Pea Paint, Pea Cards, Pea Catch, Calculator, Settings, About, Notepad, Documents and Sticky Notes. Named documents, recovery, Save/Save As, import/export, undo/redo, editable paint files and PNG export.</group>
+    <group name="Workshop">Pea Records (fields, browse with the book and rail, list with sortable headings, find with comparisons and ranges), Pea Flow (fifteen node types, animated objects on wires, drag-to-wire, resizable nodes, XML programs), Pea Feeds (RSS 1.0/2.0 and Atom, discovery, OPML, unread marks, offline bundled feed) and Agent Chat (any /v1 server, streaming, model list, Pea tools).</group>
+    <group name="Network">os.request through the internet service and os.openUrl; a loopback, same-origin, size- and time-limited relay in pos serve; direct requests that say when a site does not let pages read it; foreign-document mode in the XML reader.</group>
+    <group name="Polish">Menu glyphs and mini app icons, shortcuts beside items, a Window menu, grouped Apps, app summaries in Start, mini icons on task buttons, typographic quotes, dashes and accents in the font, masked secret fields, sticky notes that resize, roll up, duplicate and take turns with colors and appear in view without moving the desk; one window caption and title motif across Start, the map, the overview and notes; flat taskbar buttons that answer the pointer and fit their labels.</group>
+    <group name="Agents">Agent Flow: agents and helpers on a board passing A2A-style messages, with roles, routers, joins, checks that send work back, fill-in prompts with named answers, offline makers (poems, Vonnegut story shapes, songs, novel plans, family ideas, word games), fifteen templates, resizable nodes and a message log. Pea Mind, a rule-based thinker that works offline. One model router over Pea Mind, a /v1 server, the browser's built-in model, WebLLM and on-device models, with fallback to Pea Mind.</group>
+    <group name="Pea Timer">An interval timer with a hero you design: warm-up, work, rest and cool-down, ready-made and custom plans, exercise thirds, levels and unlocks, a session strip, square-wave cues that keep going while minimized.</group>
+    <group name="Develop">Regex Lab, JSON Lens (with its own error locator), Text Diff (Myers, folded, unified output), HTTP Probe (through the relay) and Codec Bench (Base64, URL, hex, HTML, SHA, JWT, Unix time, UUID).</group>
+    <group name="Software">Install and remove apps without downloading anything; each app's page says which services it needs or uses and who gives them; Providers is one tree of every service, its providers in order and what each requires, with why one cannot work here.</group>
+    <group name="Interaction">Drag and drop between widgets with a ghost; lists that drag their rows out; wheel zoom about the pointer on node boards; strict focus marks that show only where they cannot overlap content.</group>
+    <group name="Themes">Pea Garden, Arcade Sunset, Midnight Pod, Classic 1986, Pocket Pea; and five screen-saver scenes in which things move: Deep Reef, Hyperspace, Rain City, Fireworks and Pea Squadron.</group>
+    <group name="Providers">Services with providers injected by the platform, after the model router: files (disk through pos serve, browser storage, phone storage, preferences storage, memory), audio (the browser's media element with Media Session; Android's MediaPlayer in a foreground media service), media (the host's ffmpeg through pos serve), network (the relay, direct, the phone's own), schedule (while Pea OS is open) and the Pea server, each with the user's order and choices, a current provider as a signal, and catalog entries that say why a missing provider is missing. Providers require other services, resolved by walking a checked graph without cycles, so one build adapts to pos serve, a static host and a phone. Apps declare what they require and use, reach only that through app.service(), and hear in a sentence what is missing. Documents are XML files in the files service.</group>
+    <group name="Media">Jukebox (playlist tool window, shuffle and repeat, spectrum, XSPF, media keys and lock screen) and Pea Cut (sources, clips cut in a monitor, a video track with each clip's sound and an audio track, waveforms, trim, reorder, split, mute and volume, undo, ffmpeg renders with progress and stop) on an XML video project language.</group>
+    <group name="Tooling">pos serve, check, list, shot and settings; a terminal menu; a headless compositor; node --test suites that drive the real kernel through pointer and key events.</group>
+  </done>
+
+  <next>
+    <item name="NativeScript build">A Docker image holding Node, the NativeScript CLI and the Android SDK; a thin NativeScript project that copies this tree and calls src/platform/nativescript.js. No npm install on the host.</item>
+    <item name="Device run">Run on Android, then iOS. Confirm buffer textures, the render-texture upscale, scaled containers and touch input (long press, pan mode, the on-screen keyboard) under @nativescript/canvas-pixi 3 with pixi.js 8.5.</item>
+    <item name="Files on NativeScript">download and pick for the NativeScript platform, so settings.xml and stacks can be shared from a phone. Phone storage, pickFiles and the Android media player are written to Android's APIs; run them on a device, with the playback service declared in the manifest, and confirm music keeps playing with the screen off.</item>
+    <item name="Media in browsers">Run Jukebox in Chrome, Firefox and Safari and on an Android phone: Media Session controls, the lock screen, a screen-off hour of music, seeking through pos serve's byte ranges, and browser storage with large files. Run Pea Cut against real camera footage, long sources and odd frame rates.</item>
+    <item name="Pea Cut, more">Playback of the timeline in the monitor (a quick low-resolution render), transitions and titles as ffmpeg filters, more than one video track, keyframed volume, and an iOS player (AVAudioSession, the Now Playing centre).</item>
+    <item name="Providers, more">An Android schedule provider (WorkManager) so feeds refresh while Pea OS is closed; a conditional write in the files contract (If-Unmodified-Since on disk) so two tabs saving one document at once cannot both win; plain labels on providers for what a person weighs (free or paid, on this device or sent to a named company, works offline).</item>
+    <item name="Other media providers">ffmpeg.wasm when a copy is supplied with Pea OS; ffmpeg built into the Android app with a native bridge.</item>
+    <item name="Touch in browsers">Run on a touch screen in Chromium and Safari; confirm that the browser's own long-press handling does not cancel ours.</item>
+
+
+    <item name="Browser verification">Verify 0.3 and 0.4 in real Chromium, Firefox and Safari: composition and clipboard, download/pick, zoom and density changes, touch, IndexedDB storage failure, and the network relay with real feeds and a real model server (streaming through the relay, Stop aborting upstream). Headless verification does not cover these platform paths.</item>
+    <item name="Browser AI, for real">Run the built-in browser AI in Chrome 148+: availability, Install with download progress, streaming, responseConstraint, and a stopped prompt. Only a stand-in Prompt API has been tested.</item>
+    <item name="WebLLM">Only with a copy of the WebLLM library supplied by the user (Pea OS never downloads code): load it from the bundle, list its models, and connect the provider. Needs WebGPU.</item>
+    <item name="On-device models">A NativeScript bridge to Apple Foundation Models on iOS and Gemini Nano through AICore on Android, behind the device provider.</item>
+    <item name="Agent Flow, more">Real model-server runs in a browser; streaming text into nodes as it arrives; sub-flows as nodes; a Note node; per-node provider status; Pea Flow moved onto GraphView so the two boards share their view code.</item>
+    <item name="Flow, more">Sub-flows saved as nodes; a Note node that writes sticky notes; a Sound node once the square-wave synth exists.</item>
+    <item name="Pea Timer, more">Check the synth and timing in real browsers, including a minimized window and a background tab. A NativeScript tone(). A bold "W" in the Pea font that does not read as "N", so the phase can be bold. Saving a session in progress (exportState/restoreState exist).</item>
+    <item name="Native text">Implement and device-test a NativeScript native text/IME adapter and PNG export.</item>
+  </next>
+
+  <later optional="true">
+
+    <item>Drag between desktops in the overview, if it improves real workflows.</item>
+    <item>Always-on-top windows; a wallpaper per desktop.</item>
+    <item>Pea Cards: backgrounds shared by several cards, a choice of transitions.</item>
+    <item>Sound: clicks and game effects on the square-wave synth.</item>
+    <item>App packages installed at run time rather than listed in the manifest.</item>
+  </later>
+</project>

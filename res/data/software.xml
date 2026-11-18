@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  The Software catalog. Every app ships inside Pea OS: removing one hides it
+  from the desktop and Start and keeps its documents; installing brings it
+  back. <keep> apps cannot be removed.
+
+  A <provider> describes a way Pea OS can give a service (see
+  src/os/providers.js) for the Software window: who makes it, its licence,
+  and in `needs`, what a person must have for it to work. The platform
+  supplies the providers it really has; one it does not have is still
+  listed, with `absent` saying why, so nobody wonders where the video tools
+  went.
+-->
+<software version="1">
+  <keep app="settings"/>
+  <keep app="software"/>
+  <keep app="documents"/>
+  <keep app="about"/>
+
+  <provider service="thinking" id="pea-mind" by="Pea OS" license="Part of Pea OS" needs="Nothing. It is built in and works offline."/>
+  <provider service="thinking" id="server" by="Ollama, llama.cpp, LM Studio, vLLM or a hosted service" license="Depends on the server and model" needs="A server that speaks /v1/chat/completions, set up once in Agent Chat."/>
+  <provider service="thinking" id="browser-ai" by="The browser: Google's Gemini Nano in Chrome; Microsoft Edge is testing the same Prompt API" home="https://developer.chrome.com/docs/ai/prompt-api" license="The browser maker's terms, such as Google's Generative AI Prohibited Uses Policy" needs="Chrome 148 or newer on Windows 10 or 11, macOS 13 or newer, Linux or a Chromebook Plus; about 22 GB of free disk; a GPU with more than 4 GB of memory, or 16 GB of memory and 4 cores. Not on phones. Firefox and Safari do not offer it. Install asks the browser to fetch its model, once."/>
+  <provider service="thinking" id="webllm" by="MLC AI" home="https://webllm.mlc.ai/" license="Apache-2.0" needs="A browser with WebGPU, a copy of the WebLLM library supplied with Pea OS (Pea OS never downloads code), and room for a model, about 1 to 5 GB."/>
+  <provider service="thinking" id="device" by="Apple on iOS, Google on Android" license="The device maker's terms" needs="Pea OS running natively on a phone or tablet, with a native bridge to the system's model."/>
+
+  <provider service="files" id="disk" title="Disk (pos serve)" kind="server" by="Pea OS" license="Part of Pea OS"
+            about="Keeps files in a folder on this computer, through pos serve: documents, music, videos and renders, as ordinary files you can find and back up."
+            needs="Pea OS opened from pos serve on this computer. Files go to ~/.local/share/pea-os/files, or the folder given with pos serve --data."
+            absent="Not available here: only when Pea OS is opened from pos serve on a computer."/>
+  <provider service="files" id="browser-files" title="Browser storage" kind="browser" by="The browser (IndexedDB)" license="Part of Pea OS"
+            about="Keeps files inside this browser, for this site only. They stay until the browser's site data is cleared."
+            needs="A browser with IndexedDB. Private windows may forget files when they close."
+            absent="Not available here: only in a web browser."/>
+  <provider service="files" id="device-files" title="Phone storage" kind="device" by="Pea OS on NativeScript" license="Part of Pea OS"
+            about="Keeps files in Pea OS's own folder on the phone or tablet."
+            needs="Pea OS running natively on Android or iOS."
+            absent="Not available here: only when Pea OS runs natively on a phone or tablet."/>
+  <provider service="files" id="storage-files" by="Pea OS" license="Part of Pea OS" needs="Somewhere to keep preferences: localStorage in a browser. At most 2 MB."/>
+  <provider service="files" id="memory" by="Pea OS" license="Part of Pea OS" needs="Nothing. Files last until Pea OS closes."/>
+
+  <provider service="audio" id="web-audio" title="Browser audio" kind="browser" by="The browser (HTML audio and Media Session)" license="Part of Pea OS"
+            about="Plays through the browser's own media player, which shows on the lock screen and answers media keys and headsets."
+            needs="A web browser. On phones, playback is left to the system's media player so it keeps going with the screen off."
+            absent="Not available here: only in a web browser."/>
+  <provider service="audio" id="android-player" title="Android media player" kind="device" by="Android (MediaPlayer, MediaSession, a media playback service)" license="Part of Pea OS"
+            about="Plays through Android's media player in a foreground media service, so Android does not put it to sleep, with lock-screen controls."
+            needs="Pea OS running natively on Android, built with the playback service declared (see README.md)."
+            absent="Not available here: only when Pea OS runs natively on Android."/>
+
+  <provider service="media" id="ffmpeg-server" title="ffmpeg (pos serve)" kind="server" by="The FFmpeg project, run by pos serve" home="https://ffmpeg.org/" license="LGPL 2.1 or GPL 2, depending on how ffmpeg was built"
+            about="Probes, previews and renders video with the ffmpeg already installed on this computer. Shotcut works the same way: a front end to ffmpeg."
+            needs="Pea OS opened from pos serve, and ffmpeg and ffprobe on the PATH. Linux: install the ffmpeg package (dnf install ffmpeg, apt install ffmpeg). macOS: brew install ffmpeg. Windows: winget install ffmpeg. Restart pos serve after installing."
+            absent="Not available here: only when Pea OS is opened from pos serve on a computer with ffmpeg."/>
+  <provider service="media" id="ffmpeg-wasm" title="ffmpeg.wasm (in this browser)" kind="browser" by="The ffmpeg.wasm project" home="https://ffmpegwasm.netlify.app/" license="MIT, with ffmpeg's own licence"
+            about="ffmpeg compiled to WebAssembly, running inside the page."
+            needs="A copy of ffmpeg.wasm supplied with Pea OS (Pea OS never downloads code), and a browser with SharedArrayBuffer."
+            absent="Not installed: ffmpeg.wasm is third-party code. Pea OS never downloads code; a copy supplied with Pea OS is needed."/>
+  <provider service="media" id="ffmpeg-android" title="ffmpeg on Android" kind="device" by="The FFmpeg project, built for Android" home="https://ffmpeg.org/" license="LGPL 2.1 or GPL 2, depending on the build"
+            about="ffmpeg's libraries built into the Pea OS app for Android."
+            needs="Pea OS running natively on Android, with ffmpeg built into the app and a native bridge to it."
+            absent="Not built yet: Pea OS for Android needs ffmpeg built into the app and a native bridge to it."/>
+
+  <provider service="network" id="relay" title="Relay (pos serve)" kind="server" by="Pea OS" license="Part of Pea OS"
+            about="pos serve fetches each site for the page, so feeds and model servers that do not let pages read them still work."
+            needs="Pea OS opened from pos serve on this computer."
+            absent="Not available here: only in a browser page opened from pos serve."/>
+  <provider service="network" id="native-http" title="Phone network" kind="device" by="Pea OS on NativeScript" license="Part of Pea OS"
+            about="The phone's own network connection. A native app is not bound by browser rules, so it reaches any site."
+            needs="Pea OS running natively on a phone or tablet."
+            absent="Not available here: only when Pea OS runs natively on a phone or tablet."/>
+  <provider service="network" id="direct" title="Direct from this page" kind="browser" by="The browser (fetch)" license="Part of Pea OS"
+            about="The page asks each site itself. Browsers allow that only for sites that let other pages read them, which many feeds and servers do not."
+            needs="A web browser, and sites that allow it (CORS)."
+            absent="Not available here: only in a web browser."/>
+
+  <provider service="schedule" id="android-alarm" title="Android background work" kind="device" by="Android (WorkManager)" license="Part of Pea OS"
+            about="Runs scheduled work, such as fetching feeds, while Pea OS is closed."
+            needs="Pea OS running natively on Android, with a native bridge to WorkManager."
+            absent="Not built yet: Pea OS for Android needs a native bridge to WorkManager."/>
+  <provider service="schedule" id="page" by="Pea OS" license="Part of Pea OS" needs="Nothing. Work runs while Pea OS is open."/>
+
+  <provider service="server" id="pos-serve" title="pos serve" kind="server" by="Pea OS" license="Part of Pea OS"
+            about="The Pea OS server on this computer. Through it, Pea keeps files on disk, uses ffmpeg, and reaches any site."
+            needs="Pea OS opened from pos serve on this computer: run pos serve, then open the address it prints."
+            absent="Not available here: only in a browser page opened from pos serve."/>
+</software>
